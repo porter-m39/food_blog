@@ -1,0 +1,24 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_blank"> <!-- default setting: links open in new tab. -->
+    <title>  Saltoholic  </title>
+    
+    <!-- can include a java script here -->
+</head>
+<body>
+    
+    {% block page_content %}
+    <!-- Content from child templates goes here -->
+    {% endblock page_content %}
+
+    
+</body>
+</html>
