@@ -8,12 +8,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base target="_blank"> <!-- default setting: links open in new tab. -->
     <title>  Saltoholic  </title>
     
     <!-- can include a java script here -->
 </head>
+
+<header>
+    <nav>
+        <a href={% url 'posts:post_index'  %} >Home </a> 
+    </nav>
+</header>
+
 <body>
+    <h1> Saltoholic </h1>
+
+    {% block page_title %}
+    <!-- This is where the title of each child template page goes -->
+    {% endblock page_title %}
     
     {% block page_content %}
     <!-- Content from child templates goes here -->

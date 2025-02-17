@@ -13,7 +13,7 @@ def post_index(request):
 def post_tag(request, tag):
     posts = Post.objects.filter(
         tags__name__contains=tag
-    ).order_by=("-created_on")
+    ).order_by("-created_on")
     context = {
         "tag":tag,
         "posts":posts,
