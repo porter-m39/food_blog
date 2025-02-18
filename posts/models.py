@@ -15,6 +15,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     last_modified = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField("Tag", related_name="posts", blank=True) #tags are optional
+    banner = models.ImageField(default='default.png',blank=True) #image not required, we have a fallback image. Images should be added to media directory
 
     def __str__(self):
         return self.title

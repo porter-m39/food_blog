@@ -82,13 +82,10 @@ object {
 }
 
 figure {
-    margin: 0;
+    position:relative
     text-align: center;
     display: inline-block; /* Wrap the figure tightly around the content */
-    position: fixed;
     max-width: 100%;
-    right: 4rem;
-    top: 10rem;
 }
 
 

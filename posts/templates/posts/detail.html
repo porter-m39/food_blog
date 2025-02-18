@@ -8,6 +8,15 @@
 
 {% block page_content %}
 
+    <figure>
+        <img
+            class = "framed"
+            src = "{{ post.banner.url }}"
+            alt = "{{ post.title }}"
+            height = "500"
+            width = "auto"
+        />
+    </figure>
     <p>{{ post.body | linebreaks }}</p>
 
 
