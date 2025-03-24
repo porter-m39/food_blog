@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
 
 <head>
     <meta charset="utf-8">
@@ -13,14 +16,14 @@
     <!-- can include a java script here -->
 </head>
 
-<header>
+{% comment %} <header>
     <nav>
         <a href={% url 'posts:post_index'  %} >Home </a> 
     </nav>
-</header>
+</header> {% endcomment %}
 
 <body>
-    <h1> Saltoholic </h1>
+    <h1>  <a href={% url 'posts:post_index'  %} >Saltoholic </a> </h1>
 
     {% block page_title %}
     <!-- This is where the title of each child template page goes -->
