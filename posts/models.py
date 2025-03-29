@@ -1,5 +1,21 @@
 from django.db import models
 
+# auto slug imports
+from django.db import models
+from django.utils.text import slugify
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+import uuid
+
+def generate_unique_slug(title):
+    slug = slugify(title)
+    unique_slug = slug
+    num = 1
+    while Post.objects.filter(slug=unique_slug).exists():
+        unique_slug = f'{slug}-{uuid.uuid4().hex[:4]}'  # or {num}
+        num += 1
+    return unique_slug
+
 # Create your models here.
 
 class Tag(models.Model):
@@ -18,5 +34,10 @@ class Post(models.Model):
     tags = models.ManyToManyField("Tag", related_name="posts", blank=True) #tags are optional
     banner = models.ImageField(default='default.png',blank=True) #image not required, we have a fallback image. Images should be added to media directory
 
-    def __str__(self):
+    def __str__(self):# this is an example of a method. no migrations needed when implementing.
         return self.title
+    
+@receiver(pre_save, sender=Post)
+def generate_slug(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = generate_unique_slug(instance.title)
