@@ -17,7 +17,7 @@
             width = "auto"
         />
     </figure>
-    <em> {{ post.source}} </em>
+    <em> <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a> </em>
 
     <p>{{ post.body | linebreaks }}</p>
 
