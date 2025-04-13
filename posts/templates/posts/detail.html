@@ -8,16 +8,26 @@
 
 {% block page_content %}
 
-    <figure>
-        <img
-            class = "framed"
-            src = "{{ post.banner.url }}"
-            alt = "{{ post.title }}"
-            height = "500"
-            width = "auto"
-        />
-    </figure>
-    <em> <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a> </em>
+    
+    {% if post.banner %}
+        <figure>
+            <img
+                class = "framed"
+                src = "{{ post.banner.url }}"
+                alt = "{{ post.title }}"
+                height = "500"
+                width = "auto"
+            />
+        </figure>
+    {% endif %}
+
+    <em>
+        {% if post.source_link %}
+            <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a>
+        {% else %}
+            {{ post.source }}
+        {% endif %}
+    </em>
 
     <p>{{ post.body | linebreaks }}</p>
 

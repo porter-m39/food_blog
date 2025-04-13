@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from posts.models import Post, Tag
+from django.views.generic import ListView
 
 # Create your views here.
 
@@ -26,3 +27,4 @@ def post_detail(request, slug):
         "post":post,
     }
     return render(request, "posts/detail.html",context)
+
