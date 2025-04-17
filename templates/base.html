@@ -16,11 +16,13 @@
     <!-- can include a java script here -->
 </head>
 
-{% comment %} <header>
+<header>
     <nav>
-        <a href={% url 'posts:post_index'  %} >Home </a> 
+        <form action="{% url 'posts:post_search' %}" method="get">
+            <input name="search_entry" type="text" placeholder="Search...">
+        </form>
     </nav>
-</header> {% endcomment %}
+</header> 
 
 <body>
     <h1>  <a href={% url 'posts:post_index'  %} >Saltoholic </a> </h1>

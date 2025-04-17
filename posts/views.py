@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from posts.models import Post, Tag
 from django.views.generic import ListView
+from django.db.models import Q
 
 # Create your views here.
 
@@ -28,3 +29,12 @@ def post_detail(request, slug):
     }
     return render(request, "posts/detail.html",context)
 
+def post_search(request):
+    query = request.GET.get("search_entry")
+    posts = Post.objects.filter(
+        Q(title__icontains=query) | Q(body__icontains=query)
+    ).order_by("-created_on")
+    context = {
+        "posts":posts,
+    }
+    return render(request, "posts/search.html",context)

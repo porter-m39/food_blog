@@ -82,9 +82,9 @@ object {
 }
 
 figure {
-    position:relative
-    text-align: center;
-    display: inline-block; /* Wrap the figure tightly around the content */
+    position:relative;
+    text-align:center;
+    display:inline-block; /* Wrap the figure tightly around the content */
     max-width: 100%;
 }
 
@@ -113,3 +113,5 @@ li {
     margin-bottom: 10px;  /* Add space between list items */
     line-height: 1.2;
 }
+
+
