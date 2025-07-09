@@ -1,0 +1,44 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Saltoholic  </title>
+    
+    <!-- can include a java script here -->
+</head>
+
+<header>
+    <nav>
+        <a href="{% url 'posts:post_index' %}">food</a> |
+        <a href="{% url 'coffee:coffee_index' %}">coffee</a> | 
+        <form action="{% url 'posts:post_search' %}" method="get">
+            <input name="search_entry" type="text" placeholder="Search...">
+        </form>
+    </nav>
+</header> 
+
+<body>
+    {% block tab_title %}
+    <!-- Specify food blog / coffee / etc  here -->
+     {% endblock tab_title %}
+
+    {% block page_title %}
+    <!-- This is where the title of each child template page goes -->
+    {% endblock page_title %}
+    
+    {% block page_content %}
+    <!-- Content from child templates goes here -->
+    {% endblock page_content %}
+
+    
+</body>
+</html>

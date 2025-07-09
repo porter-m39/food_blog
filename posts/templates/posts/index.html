@@ -1,22 +1,28 @@
 <!-- posts/templates/posts/index.html -->
 
-{% extends "base.html" %}
+{% extends "/Users/portermorgan/Documents/Python/food_blog/posts/templates/posts/posts_base.html" %}
 
 {% block page_title %}
     <h2> All posts </h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    {% block posts %}
-    {% for post in posts %}
-        <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
-            {{ post.created_on.date }}
-            <p> Tags: {% for tag in post.tags.all %}
-                    <a href = "{% url 'posts:post_tag' tag.name %}">
-                        {{ tag.name }} </a>
-            {% endfor %} </p>
-    {% endfor %}
-    {% endblock posts %}
+    <div class = "main-content" >
+        {% block posts %}
+        {% for post in posts %}
+            <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
+                {{ post.created_on.date }}
+                <p> Tags: {% for tag in post.tags.all %}
+                        <a href = "{% url 'posts:post_tag' tag.name %}">
+                            {{ tag.name }} </a>
+                {% endfor %} </p>
+        {% endfor %}
+        {% endblock posts %}
+    </div>
+
+    <aside class = "sidebar">
+        Try out a sidebar?
+    </aside>
 
 
     

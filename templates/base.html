@@ -18,6 +18,7 @@
 
 <header>
     <nav>
+        <a href="{% url 'coffee:coffee_index' %}">coffee</a> |
         <form action="{% url 'posts:post_search' %}" method="get">
             <input name="search_entry" type="text" placeholder="Search...">
         </form>
@@ -25,7 +26,9 @@
 </header> 
 
 <body>
-    <h1>  <a href={% url 'posts:post_index'  %} >Saltoholic </a> </h1>
+    {% block tab_title %}
+    <!-- Specify food blog / coffee / etc  here -->
+     {% endblock tab_title %}
 
     {% block page_title %}
     <!-- This is where the title of each child template page goes -->

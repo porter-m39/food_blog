@@ -1,0 +1,25 @@
+<!-- coffee/templates/coffee/index.html -->
+
+{% extends "/Users/portermorgan/Documents/Python/food_blog/coffee/templates/coffee/coffee_base.html" %} 
+
+{% block page_title %}
+    <h2> All coffees </h2>
+{% endblock page_title %}
+
+{% block page_content %}
+    <div class = "main-content" >
+        {% block coffees %}
+            {% for coffee in coffees %}
+                <h3><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h3>
+                <p> 
+                    Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
+                            {{ coffee.roaster }} </a> <br>
+                    {{ coffee.created_on.date }} 
+                </p>
+            {% endfor %}
+        {% endblock coffees %}
+    </div>
+
+
+    
+{% endblock page_content %}

@@ -1,0 +1,7 @@
+Bugs / things to fix
+- weird "try out a sidebar" aside in index.html (in posts)
+- when I list things, make it so that there's no comma after the last item in the list
+- once you decide for certain you like the set-up with base2.html, rename it to base.html and delete the original base.html
+- add ability to search coffees by roast level, cupping notes. Maybe acidity too?
+- change score system so that different people can submit different scores
+- change font. perhaps get rid of bootstrap altogether.

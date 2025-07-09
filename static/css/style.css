@@ -115,3 +115,14 @@ li {
 }
 
 
+.sidebar {
+    float: right;
+    width: 25%; /* Or a percentage, or a specific pixel value */
+    /* Add other styling like background, padding, etc. */
+  }
+
+  .main-content {
+    float: left;
+    width: 75%; /* Or adjust based on sidebar width */
+    /* Add other styling */
+  }
