@@ -10,4 +10,8 @@ urlpatterns = [
     path("coffee/<int:pk>/", views.coffee_detail, name="coffee_detail"),
     path("roaster/<roaster>/",views.coffee_roaster,name="coffee_roaster"),
     path("origin/<country>/",views.coffee_origin,name="coffee_origin"),
+    path("cupping_note/<cupping_note>", views.cupping_note, name="cupping_note"),
+    path("roast_level/<roast_level>", views.roast_level, name = "roast_level"),
+    path("acidity/<acidity>", views.acidity, name="coffee_acidity"),
+    path('search/', views.coffee_search,name="coffee_search"),
 ]

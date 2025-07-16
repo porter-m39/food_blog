@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("posts.urls")),
     path('coffee/',include("coffee.urls")),
+    path('site_search/', views.site_search,name="site_search")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

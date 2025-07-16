@@ -14,16 +14,11 @@
                 {{ post.created_on.date }}
                 <p> Tags: {% for tag in post.tags.all %}
                         <a href = "{% url 'posts:post_tag' tag.name %}">
-                            {{ tag.name }} </a>
+                            {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %} </p>
         {% endfor %}
         {% endblock posts %}
     </div>
-
-    <aside class = "sidebar">
-        Try out a sidebar?
-    </aside>
-
 
     
 {% endblock page_content %}

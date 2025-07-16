@@ -32,6 +32,28 @@ class CuppingNote(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Critic(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+    
+class Score(models.Model):
+    critic = models.ForeignKey("Critic",  on_delete=models.CASCADE) # CASCADE part makes sure the roaster info is deleted when a coffee is deleted
+    coffee = models.ForeignKey("Coffee", on_delete=models.CASCADE)
+    score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    # the following function is courtesy of Deep Seek. No migration needed when defining this.
+    def __str__(self):
+        # Get the critic's name (assuming Critic model has a name field)
+        critic_name = str(self.critic)
+        
+        # Get coffee name if it exists (handling the null case)
+        coffee_name = str(self.coffee)
+        
+        return f"{critic_name} - {coffee_name}: {self.score}/10"
 
 
 class Coffee(models.Model):
@@ -43,7 +65,6 @@ class Coffee(models.Model):
     cupping_notes = models.ManyToManyField("CuppingNote", related_name = "coffees",blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     comments = models.TextField(blank=True) 
 
     def __str__(self):

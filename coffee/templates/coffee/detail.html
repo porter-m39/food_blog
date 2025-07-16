@@ -4,25 +4,25 @@
 {% block page_title %}
     <h2> {{ coffee.name }} </h2>
 
-    <big> <em> {{ coffee.roaster}} </em> </big>
+    <big> <em> <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}"> {{ coffee.roaster }} </a> </em> </big>
 {% endblock page_title %}
 
 {% block page_content %}
     {% if coffee.origin %}
         <p> <em> Origin: </em> 
             {% for country in coffee.origin.all %}
-                <a href = "{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a>, 
+                <a href = "{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %} 
         </p>
     {% endif %}
 
     {% if coffee.roast_level %}
-        <p> <em> Roast level: </em> coffee.roast_level 
+        <p> <em> Roast level: </em> <a href = "{% url 'coffee:roast_level' coffee.roast_level %}"> {{ coffee.roast_level.name }} </a>
         </p>
     {% endif %}
 
     {% if coffee.acidity %}
-        <p> <em> Acidity: </em> coffee.acidity 
+        <p> <em> Acidity: </em> <a href = "{% url 'coffee:coffee_acidity' coffee.acidity %}"> {{ coffee.acidity.name }} </a>
         </p>
     {% endif %}
 
@@ -30,11 +30,15 @@
     <p>
         <em> Cupping notes: </em>
         {% for cupping_note in coffee.cupping_notes.all %}
-            {{ cupping_note.name }}, 
+            <a href = "{% url 'coffee:cupping_note' cupping_note %}">{{ cupping_note.name }}</a>{% if not forloop.last %}, {% endif %}
         {% endfor %}
     </p>
 
-    <big> Score: {{ coffee.score }} </big>
+    {% if coffee.score_set.exists %}
+        <big> Scores <br> </big> {% for score in coffee.score_set.all %}
+            {{ score.critic }}: {{ score.score }} <br>
+        {% endfor %} 
+    {% endif %}
 
     {% if coffee.comments %}
         <p>

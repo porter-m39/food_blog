@@ -4,7 +4,8 @@
 {% load static %}
 <html lang="en">
 
-<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+<!-- Below is a link to some style sheet from bootstrap. For now, I'm going without bootstrap. -->
+<!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/flatly/bootstrap.min.css"> -->
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
 
@@ -18,9 +19,13 @@
 
 <header>
     <nav>
-        <a href="{% url 'coffee:coffee_index' %}">coffee</a> |
+        <a href="{% url 'posts:post_index' %}">food</a> |
+        <a href="{% url 'coffee:coffee_index' %}">coffee</a> | 
         <form action="{% url 'posts:post_search' %}" method="get">
-            <input name="search_entry" type="text" placeholder="Search...">
+            <input name="search_entry" type="text" placeholder="Search food...">
+        </form>
+        <form action="{% url 'coffee:coffee_search' %}" method="get">
+            <input name="search_entry" type="text" placeholder="Search coffee...">
         </form>
     </nav>
 </header> 
