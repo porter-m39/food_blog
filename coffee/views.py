@@ -70,20 +70,10 @@ def acidity(request, acidity):
 
 def coffee_search(request):
     query = request.GET.get("search_entry")
-    
-    # Helper function to search all text fields in a model
-    def search_model(model, search_term):
-        q_objects = Q()
-        for field in model._meta.get_fields():
-            # Check if field is a text-based field (CharField, TextField, etc.)
-            if hasattr(field, 'get_internal_type') and field.get_internal_type() in (
-                'CharField', 'TextField', 'EmailField', 'URLField', 'SlugField'
-            ):
-                q_objects |= Q(**{f"{field.name}__icontains": search_term})
-        return model.objects.filter(q_objects).order_by("-created_on")
-    
-    # Search both models
-    coffees = search_model(Coffee, query)
+
+    coffees = Coffee.objects.filter(
+        Q(name__icontains=query) | Q(roaster__name__icontains=query) | Q(origin__name__icontains=query) | Q(cupping_notes__name__icontains=query) | Q(comments__icontains=query)
+    ).order_by("-created_on").distinct()
     
     context = {
         "coffees": coffees,

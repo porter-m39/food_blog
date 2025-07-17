@@ -21,11 +21,8 @@
     <nav>
         <a href="{% url 'posts:post_index' %}">food</a> |
         <a href="{% url 'coffee:coffee_index' %}">coffee</a> | 
-        <form action="{% url 'posts:post_search' %}" method="get">
-            <input name="search_entry" type="text" placeholder="Search food...">
-        </form>
-        <form action="{% url 'coffee:coffee_search' %}" method="get">
-            <input name="search_entry" type="text" placeholder="Search coffee...">
+        <form action="{% url 'site_search' %}" method="get">
+            <input name="search_entry" type="text" placeholder="Search site...">
         </form>
     </nav>
 </header> 
