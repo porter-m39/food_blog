@@ -28,13 +28,3 @@ def post_detail(request, slug):
         "post":post,
     }
     return render(request, "posts/detail.html",context)
-
-def post_search(request):
-    query = request.GET.get("search_entry")
-    posts = Post.objects.filter(
-        Q(title__icontains=query) | Q(body__icontains=query)
-    ).order_by("-created_on")
-    context = {
-        "posts":posts,
-    }
-    return render(request, "posts/search.html",context)

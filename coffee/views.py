@@ -68,15 +68,3 @@ def acidity(request, acidity):
     }
     return render(request, "coffee/acidity.html",context)
 
-def coffee_search(request):
-    query = request.GET.get("search_entry")
-
-    coffees = Coffee.objects.filter(
-        Q(name__icontains=query) | Q(roaster__name__icontains=query) | Q(origin__name__icontains=query) | Q(cupping_notes__name__icontains=query) | Q(comments__icontains=query)
-    ).order_by("-created_on").distinct()
-    
-    context = {
-        "coffees": coffees,
-    }
-    return render(request, "coffee/search.html", context)
-
