@@ -22,23 +22,27 @@
         </figure>
     {% endif %}
 
-    <em>
-        {% if post.source_link %}
-            <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a>
-        {% else %}
-            {{ post.source }}
-        {% endif %}
-    </em>
+    <p> <h3>
+        <em>
+            {% if post.source_link %}
+                <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a>
+            {% else %}
+                {{ post.source }}
+            {% endif %}
+        </em>
+    </h3> </p>
 
     <p>{{ post.body | linebreaks }}</p>
 
 
-    <small>
-        {{ post.created_on.date }} | Tags:
-        {% for tag in post.tags.all %}
-            <a href="{% url 'posts:post_tag' tag.name %}">
-                {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </small>
+    <footer>
+        <p>
+            {{ post.created_on.date }} | Tags:
+            {% for tag in post.tags.all %}
+                <a href="{% url 'posts:post_tag' tag.name %}">
+                    {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </footer>
     
 {% endblock page_content %}
