@@ -1,48 +1,55 @@
 <!-- posts/templates/posts/detail.html -->
 
-{% extends "/Users/portermorgan/Documents/Python/food_blog/posts/templates/posts/posts_base.html" %}
+{% extends "base.html" %}
 
 
 {% block page_title %}
-    <h2> {{ post.title }} </h2>
+    <h1> {{ post.title }} </h1>
 {% endblock page_title %}
 
 {% block page_content %}
+    <div class="narrow-body">
 
     
-    {% if post.banner %}
-        <figure>
-            <img
-                class = "framed"
-                src = "{{ post.banner.url }}"
-                alt = "{{ post.title }}"
-                height = "500"
-                width = "auto"
-            />
-        </figure>
-    {% endif %}
+        {% if post.banner %}
+            <div style="text-align: center;">
+                <figure>
+                    <img
+                        class = "framed"
+                        src = "{{ post.banner.url }}"
+                        alt = "{{ post.title }}"
+                        height = "500"
+                        width = "auto"
+                    />
+                </figure>
+            </div>
+        {% endif %}
+            
+        <h3>
+            <em>
+                {% if post.source_link %}
+                    <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a>
+                {% else %}
+                    {{ post.source }}
+                {% endif %}
+            </em>
+        </h3>
 
-    <p> <h3>
-        <em>
-            {% if post.source_link %}
-                <a href="{{ post.source_link  }}" target="_blank" rel="noopener noreferrer" >{{ post.source }} </a>
-            {% else %}
-                {{ post.source }}
+        <p>{{ post.body | linebreaks }}</p>
+
+
+        <footer>
+            {{ post.created_on.date }}
+            {% if post.tags.all %}
+                <br>
+                Tags:
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'posts:post_tag' tag.name %}">
+                        {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
             {% endif %}
-        </em>
-    </h3> </p>
+        </footer>
 
-    <p>{{ post.body | linebreaks }}</p>
-
-
-    <footer>
-        <p>
-            {{ post.created_on.date }} | Tags:
-            {% for tag in post.tags.all %}
-                <a href="{% url 'posts:post_tag' tag.name %}">
-                    {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-        </p>
-    </footer>
+    </div>
     
 {% endblock page_content %}

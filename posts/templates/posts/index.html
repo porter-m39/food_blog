@@ -1,24 +1,31 @@
 <!-- posts/templates/posts/index.html -->
 
-{% extends "/Users/portermorgan/Documents/Python/food_blog/posts/templates/posts/posts_base.html" %}
+{% extends "base.html" %}
 
 {% block page_title %}
-    <h2> All posts </h2>
+    <h1> all recipe posts </h1>
 {% endblock page_title %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
-    <div class = "main-content" >
-        {% block posts %}
+    <div class = "main-content" style="text-align: center;">
         {% for post in posts %}
-            <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
-                {{ post.created_on.date }}
-                <p> Tags: {% for tag in post.tags.all %}
-                        <a href = "{% url 'posts:post_tag' tag.name %}">
-                            {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-                {% endfor %} </p>
+            <h2><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
+            <em> {{ post.created_on.date }} </em><br><br>
+            {% if post.banner %}
+                <figure>
+                    <img
+                        class = "framed"
+                        src = "{{ post.banner.url }}"
+                        alt = "{{ post.title }}"
+                        height = "400"
+                        width = "auto"
+                    />
+                </figure>
+                
+            {% endif %}
+            <br> <br>
         {% endfor %}
-        {% endblock posts %}
     </div>
 
     

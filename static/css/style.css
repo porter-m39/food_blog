@@ -61,8 +61,8 @@ h2{
     padding: auto;
     line-height: 1.5;
     font-weight: 500;
-    margin-bottom: 2vh;
-    font-size: 2.2vw;
+    margin-bottom: 1vh;
+    font-size: 3vw;
     letter-spacing: .01em;
 }
 
@@ -70,7 +70,7 @@ h3{
     padding: auto;
     line-height: 1.5;
     font-weight: 500;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     font-size: 1.6vw;
 }
 
@@ -78,7 +78,7 @@ p {
     text-align:left;
     padding: auto; /* maybe this will help make nicer vertical spacing? */ 
     line-height: 1.5;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
 }
 
 a {  /* color of links */
@@ -105,16 +105,19 @@ img.framed {
     padding: 15px;                /* Add space between the image and the border */
     background-color: rgb(62, 168, 62);    /* Add a background color behind the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-bottom: 2vh;
 }
 
-
-
-
-  .main-content {
+.main-content {
     float: left;
     width: 75%; /* Or adjust based on sidebar width */
     /* Add other styling */
   }
+
+.narrow-body { /* for post detail pages, so that text is narrower */
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
 
 .gap_below{
     margin-bottom: 8vh;
