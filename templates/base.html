@@ -19,8 +19,9 @@
 
 <header>
     <nav>
-        <a href="{% url 'posts:post_index' %}">food</a> |
-        <a href="{% url 'coffee:coffee_index' %}">coffee</a> | 
+        <h1> the salt lick </h1>
+        <a href="{% url 'posts:post_index' %}">food</a>
+        <a href="{% url 'coffee:coffee_index' %}">coffee</a>
         <form action="{% url 'site_search' %}" method="get">
             <input name="search_entry" type="text" placeholder="Search site...">
         </form>

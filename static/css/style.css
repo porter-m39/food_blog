@@ -19,15 +19,43 @@ body{
 
 
 nav {
-    padding: 1rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 4vh;
     color: whitesmoke;
     background-color: rgb(62, 168, 62);
-    font-size: 2rem; 
-    position: fixed;
-    right:0;
-    top:0;
-    text-align: right;
+    right: 5vw;
+    top: 5vh;
+    width: 20 vw;
+    height: auto; /* Instead of fixed 20vh */
+    min-height: 20vh; /* Ensures minimum height */
+    position: absolute;
+    /* box-sizing: border-box; */
+    
+    /* position: fixed; */
+    /* right:0;
+    top:0; */
+    /* width: 90vw;
+    height: 10vh */
+    /* text-align: center; */
      /* border: 5px solid whitesmoke;  */
+}
+
+nav form{
+    margin: 0;
+    display: flex;
+    flex-grow: 1;
+    max-width: 30vw;
+}
+
+/* settings for stuff you enter into seach bar */
+nav input{
+    width: 100%;               /* Fill available space */
+    padding: 0.5rem;           /* Add padding for better appearance */
 }
 
 nav a {
