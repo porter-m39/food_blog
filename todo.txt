@@ -12,6 +12,11 @@ Bugs / things to fix
     - New color scheme?
     - change the bold face font so that it's more readable
     - make nav bar better
+    - DONE -- add search bar to the new "header"
+    - get rid of the "tab title" in base.html
+    - add border to the sidebar
+    - make it so that there's not an empty list of tags to the side when you search by tag 
+
 - DONE -- Fix search
     - Right now, I have separate searches for coffee and food. Make this into one search bar. I think for this, I need to rewrite the search.html file to index both recipes and coffees.
     - Fix coffee search so that it searches origin, comments, cupping notes, etc. (Could do something similar for food search too)

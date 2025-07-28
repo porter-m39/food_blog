@@ -12,19 +12,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>  Saltoholic  </title>
+    <title>  the salt lick  </title>
     
     <!-- can include a java script here -->
 </head>
 
-<header>
-    <nav>
-        <h1> the salt lick </h1>
-        <a href="{% url 'posts:post_index' %}">food</a>
-        <a href="{% url 'coffee:coffee_index' %}">coffee</a>
+<header class = "site-header">
+    <div class="header-search">
         <form action="{% url 'site_search' %}" method="get">
-            <input name="search_entry" type="text" placeholder="Search site...">
+                <input name="search_entry" type="text" placeholder="Search site...">
         </form>
+    </div>
+
+    <h1 class="site-title"> the salt lick </h1>
+    <nav class="header-links">
+        <a href="{% url 'posts:post_index' %}" class = "header-link">food</a>
+        <a href="{% url 'coffee:coffee_index' %}" class = "header-link">coffee</a>
     </nav>
 </header> 
 

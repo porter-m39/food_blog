@@ -1,7 +1,7 @@
  
 *{
     margin:0;
-    padding-left:1vh;
+    /* padding-left:1vh; */
     box-sizing: border-box; 
 }
 
@@ -11,76 +11,23 @@ body{
     font-size: 1.1vw;
     background-color: darkgreen;
     color:whitesmoke;
-    max-width: 1200px;
-    margin-left: 2vw; 
+    /* max-width: 1200px; */
+    /* margin-left: 2vw;  */
+}
+
+/* set-up for main content and sidebar to be next to each other. */ 
+.page-container { 
+    display: flex; /* Creates a flex container */
+    gap: 2rem; /* Space between main content and sidebar */
 }
 
 
-
-
-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    gap: 1rem;
-    font-size: 4vh;
-    color: whitesmoke;
-    background-color: rgb(62, 168, 62);
-    right: 5vw;
-    top: 5vh;
-    width: 20 vw;
-    height: auto; /* Instead of fixed 20vh */
-    min-height: 20vh; /* Ensures minimum height */
-    position: absolute;
-    /* box-sizing: border-box; */
-    
-    /* position: fixed; */
-    /* right:0;
-    top:0; */
-    /* width: 90vw;
-    height: 10vh */
-    /* text-align: center; */
-     /* border: 5px solid whitesmoke;  */
-}
-
-nav form{
-    margin: 0;
-    display: flex;
-    flex-grow: 1;
-    max-width: 30vw;
-}
-
-/* settings for stuff you enter into seach bar */
-nav input{
-    width: 100%;               /* Fill available space */
-    padding: 0.5rem;           /* Add padding for better appearance */
-}
-
-nav a {
-    color: whitesmoke;
-}
-
-/* main {
-    flex-grow: 1;
-    display: grid;
-    place-content: center;
-} */
-
-footer{
-    position: relative;
-    bottom: 0; /* Position at bottom of page */
-    left: 0; /* Left of page */
-    margin-bottom: 8vh;
-
-}
 
 
 h1{
     padding: auto;
     font-size: 10vh;
-    /* margin-left:1rem; */
+    margin-left:3vw;
     margin-top:3vh;
     margin-bottom: 3vh;
 }
@@ -111,14 +58,14 @@ p {
 
 a {  /* color of links */
     text-decoration: none;
-    color: rgb(131, 153, 241);
+    /* color: rgb(131, 153, 241);  */
+    color: whitesmoke;
 }
 
 a:hover { /* color of links when your cursor is on them */
-    opacity: .85;
+    /* opacity: .85; */
+    text-decoration: underline;
 }
-
-
 
 figure {
     position:relative;
@@ -137,10 +84,26 @@ img.framed {
 }
 
 .main-content {
+    flex: 1; /* makes  */
     float: left;
     width: 75%; /* Or adjust based on sidebar width */
-    /* Add other styling */
+    margin-left: 3vw;
   }
+
+.sidebar {
+    float: right;
+    width: 20%; /* Or a percentage, or a specific pixel value */
+  }
+
+
+footer{
+    position: relative;
+    bottom: 0; /* Position at bottom of page */
+    left: 0; /* Left of page */
+    margin-bottom: 8vh;
+
+}
+
 
 .narrow-body { /* for post detail pages, so that text is narrower */
     padding-left: 15vw;
@@ -151,6 +114,60 @@ img.framed {
     margin-bottom: 8vh;
 }
 
+/* HEADER SETTINGS */
+
+.site-header{
+    background-color: rgb(62, 168, 62);
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative; /* Needed for absolute positioning of search */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.site-title{
+    font-size: 15vh;
+    margin-bottom: 5vh;
+}
+
+.header-links{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.header-link{
+    font-size: 4vh;
+    color: whitesmoke;
+}
+
+.header-link:hover{
+    text-decoration: underline;
+}
+
+/* search bar in header */
+
+.header-search {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 300px; /* Control the container width */
+}
+
+/* SEARCH BAR SETTINGS */
+form{
+    margin: 0;
+    display: flex;
+    flex-grow: 1;
+    max-width: 30vw;
+}
+
+/* settings for stuff you enter into seach bar */
+input{
+    width: 100%;               /* Fill available space */
+    padding: 0.5rem;           /* Add padding for better appearance */
+}
 
 
 
@@ -169,41 +186,6 @@ li {
 }
 
 
-.sidebar {
-    float: right;
-    width: 25%; /* Or a percentage, or a specific pixel value */
-    /* Add other styling like background, padding, etc. */
-  }
 
 
-/* body{
-    min-height: 15vh;
-    display: grid;  
-    font-size: 1rem;
-    background-color: darkgreen;
-    color:whitesmoke;
-    max-width: 800px;
-    margin:1rem;
-}  */
 
-
-/* Not doing anything? */
-/* title{
-    position: fixed;
-    left:0;
-    top: 0;
-    font-size: 2rem;
-} */
-
-object {
-    position:fixed;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    top:8rem;   
-}
-
-figcaption {
-    font-style: italic;
-    margin-top: 2px;
-    border-radius: 4px;
-}
