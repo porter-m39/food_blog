@@ -45,7 +45,7 @@
 
             <h3> Roast level </h3>
 
-            <div>
+            <div style="display: flex; gap: 40px;">
                 <a href = "{% url 'coffee:roast_level' "light" %}">{{ "light" }}</a> 
                 <a href = "{% url 'coffee:roast_level' "medium" %}">{{ "medium" }}</a> 
                 <a href = "{% url 'coffee:roast_level' "dark" %}">{{ "dark" }}</a>  <br><br>
@@ -53,7 +53,7 @@
 
             <h3> Acidity </h3>
 
-            <div>
+            <div style="display: flex; gap: 40px;">
                 <a href = "{% url 'coffee:coffee_acidity' "low" %}">{{ "low" }}</a> 
                 <a href = "{% url 'coffee:coffee_acidity' "medium" %}">{{ "medium" }}</a> 
                 <a href = "{% url 'coffee:coffee_acidity' "high" %}">{{ "high" }}</a>  <br><br>

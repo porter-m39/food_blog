@@ -9,7 +9,7 @@ body{
     min-height: 15vh;
     display: grid;  
     font-size: 1.1vw;
-    background-color: darkgreen;
+    background-color: rgb(73, 61, 158);
     color:whitesmoke;
     /* max-width: 1200px; */
     /* margin-left: 2vw;  */
@@ -18,7 +18,7 @@ body{
 /* set-up for main content and sidebar to be next to each other. */ 
 .page-container { 
     display: flex; /* Creates a flex container */
-    gap: 2rem; /* Space between main content and sidebar */
+    gap: 3vw; /* Space between main content and sidebar */
     justify-content: space-between;
 }
 
@@ -79,7 +79,7 @@ figure {
 img.framed {
     /* border: 5px solid whitesmoke;       Add a solid border */
     padding: 15px;                /* Add space between the image and the border */
-    background-color: rgb(62, 168, 62);    /* Add a background color behind the image */
+    background-color: rgb(178, 165, 255);    /* Add a background color behind the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     margin-bottom: 2vh;
 }
@@ -87,13 +87,18 @@ img.framed {
 .main-content {
     flex: 1; /* makes  */
     float: left;
-    width: 75%; /* Or adjust based on sidebar width */
+    width: 67%; /* Or adjust based on sidebar width */
     margin-left: 3vw;
   }
 
 .sidebar {
     float: right;
     width: 20%; /* Or a percentage, or a specific pixel value */
+    border: 10px solid rgb(255, 242, 175);
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    margin-right: 7vw;
   }
 
 .coffee-main {
@@ -105,7 +110,12 @@ img.framed {
 
 .coffee-sidebar {
     float: right;
-    width: 30%; /* Or a percentage, or a specific pixel value */
+    width: 25%; /* Or a percentage, or a specific pixel value */
+    margin-right:5vw;
+    border: 10px solid rgb(255, 242, 175);
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
 
@@ -130,18 +140,21 @@ footer{
 /* HEADER SETTINGS */
 
 .site-header{
-    background-color: rgb(62, 168, 62);
+    background-color: rgb(178, 165, 255);
     text-align: center;
     padding: 2rem;
     margin-bottom: 2rem;
     position: relative; /* Needed for absolute positioning of search */
     width: 100%; /* Ensure full width */
     box-sizing: border-box; /* Include padding in width calculation */
+    border-bottom: 20px solid rgb(255, 242, 175);
+    border-top: 20px solid rgb(255, 242, 175);
 }
 
 .site-title{
     font-size: 15vh;
     margin-bottom: 5vh;
+    color: rgb(255, 242, 175);
 }
 
 .header-links{
@@ -152,7 +165,7 @@ footer{
 
 .header-link{
     font-size: 4vh;
-    color: whitesmoke;
+    color: rgb(255, 242, 175);
 }
 
 .header-link:hover{
@@ -181,24 +194,4 @@ input{
     width: 100%;               /* Fill available space */
     padding: 0.5rem;           /* Add padding for better appearance */
 }
-
-
-
-/* NOT USING THE STUFF BELOW RIGHT NOW */
-
-
-/* settings for bullet-point list */
-ul {
-    list-style-type: disc; /* Default bullet style (can be changed) */
-    padding-left: 20px;   /* Add some padding for better spacing */
-    margin-left:1rem;
-}
-li {
-    margin-bottom: 10px;  /* Add space between list items */
-    line-height: 1.2;
-}
-
-
-
-
 

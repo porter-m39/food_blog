@@ -9,12 +9,12 @@ Bugs / things to fix
     - figure out how to display relevant scores on coffee details page
 - DONE -- change font. perhaps get rid of bootstrap altogether.
 - Make blog look nicer :/ 
-    - New color scheme?
+    - DONE -- New color scheme?
     - DONE -- change the bold face font so that it's more readable
     - DONE -- make nav bar better
     - DONE -- add search bar to the new "header"
     - DONE -- get rid of the "tab title" in base.html
-    - add border to the sidebar
+    - DONE -- add border to the sidebar
     - DONE -- make it so that there's not an empty list of tags to the side when you search by tag 
 
 - DONE -- Fix search
