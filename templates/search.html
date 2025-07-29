@@ -1,34 +1,29 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-    <h1> Search for {{ query }} </h1>
+    <h1> Search for <em>{{ query }}</em> </h1>
 {% endblock page_title %}
 
 {% block page_content %}
-    <div class = "main-content" >
-        <h3> Recipe posts </h3> <br>
-        {% block posts %}
+    <div class = "main-content" , style = "margin-left:20vw">
+        <h2> Recipes </h2> <br>
         {% for post in posts %}
-            <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
-                {{ post.created_on.date }}
-                <p> Tags: {% for tag in post.tags.all %}
-                        <a href = "{% url 'posts:post_tag' tag.name %}">
-                            {{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-                {% endfor %} </p>
-        {% endfor %}
-        {% endblock posts %}
-        
-        <h3> Coffee posts </h3> <br>
-        {% block coffees %}
-            {% for coffee in coffees %}
-                <h3><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h3>
-                <p> 
-                    Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
-                            {{ coffee.roaster }} </a> <br>
-                    {{ coffee.created_on.date }} 
-                </p>
+                <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
+                <em> {{ post.created_on.date }} </em><br><br>
+                <br> <br>
             {% endfor %}
-        {% endblock coffees %}
+        
+        <h2> Coffees </h2> <br>
+        
+        {% for coffee in coffees %}
+            <h3><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h3>
+            <p> 
+                Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
+                        {{ coffee.roaster }} </a> <br>
+                {{ coffee.created_on.date }} 
+                <br><br><br>
+            </p>
+        {% endfor %}
 
     </div>
 

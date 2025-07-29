@@ -1,24 +1,68 @@
 <!-- coffee/templates/coffee/index.html -->
 
-{% extends "/Users/portermorgan/Documents/Python/food_blog/coffee/templates/coffee/coffee_base.html" %} 
+{% extends "base.html" %} 
 
 {% block page_title %}
-    <h2> All coffees </h2>
+    <h1> all coffees </h1>
 {% endblock page_title %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
-    <div class = "main-content" >
-        {% block coffees %}
+    <div class = "page_container">
+        <div class = "coffee-main">
             {% for coffee in coffees %}
-                <h3><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h3>
+                <h2><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h2>
                 <p> 
                     Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
                             {{ coffee.roaster }} </a> <br>
                     {{ coffee.created_on.date }} 
+                    <br><br><br>
                 </p>
             {% endfor %}
-        {% endblock coffees %}
+        </div>
+
+        <div class="coffee-sidebar">
+
+            <h2> Filters </h2> <br> 
+
+            <h3> Roaster </h3>
+
+            <div style="margin-left:2vw;">
+                {% for roaster in roasters %}
+                    <a href = "{% url 'coffee:coffee_roaster' roaster.name %}">{{ roaster.name }}</a> <br> <br>
+                {% endfor %}
+
+            </div>
+
+            <h3> Country of origin </h3>
+
+            <div style="margin-left:2vw;">
+                {% for country in countries %}
+                    <a href = "{% url 'coffee:coffee_origin' country.name %}">{{ country.name }}</a> <br> <br>
+                {% endfor %}
+
+            </div>
+
+            <h3> Roast level </h3>
+
+            <div>
+                <a href = "{% url 'coffee:roast_level' "light" %}">{{ "light" }}</a> 
+                <a href = "{% url 'coffee:roast_level' "medium" %}">{{ "medium" }}</a> 
+                <a href = "{% url 'coffee:roast_level' "dark" %}">{{ "dark" }}</a>  <br><br>
+            </div>
+
+            <h3> Acidity </h3>
+
+            <div>
+                <a href = "{% url 'coffee:coffee_acidity' "low" %}">{{ "low" }}</a> 
+                <a href = "{% url 'coffee:coffee_acidity' "medium" %}">{{ "medium" }}</a> 
+                <a href = "{% url 'coffee:coffee_acidity' "high" %}">{{ "high" }}</a>  <br><br>
+            </div>
+
+
+            
+
+        </div>
     </div>
 
 

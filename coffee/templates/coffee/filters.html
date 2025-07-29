@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block page_content %}
+    <div class = "coffee-main", style="margin-left: 20vw;">
+        {% for coffee in coffees %}
+            <h2><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h2>
+            <p> 
+                Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
+                        {{ coffee.roaster }} </a> <br>
+                {{ coffee.created_on.date }} 
+                <br><br><br>
+            </p>
+        {% endfor %}
+    </div>
+
+
+    
+{% endblock page_content %}

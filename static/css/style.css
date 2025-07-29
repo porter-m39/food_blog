@@ -19,6 +19,7 @@ body{
 .page-container { 
     display: flex; /* Creates a flex container */
     gap: 2rem; /* Space between main content and sidebar */
+    justify-content: space-between;
 }
 
 
@@ -27,8 +28,8 @@ body{
 h1{
     padding: auto;
     font-size: 10vh;
-    margin-left:3vw;
-    margin-top:3vh;
+    margin-left:3vw; /* this is because h1 is used for page titles, which don't inherit the main-content margins */
+    margin-top:3vh;  
     margin-bottom: 3vh;
 }
 
@@ -93,6 +94,18 @@ img.framed {
 .sidebar {
     float: right;
     width: 20%; /* Or a percentage, or a specific pixel value */
+  }
+
+.coffee-main {
+    flex: 1; /* makes  */
+    float:left;
+    width: 50%; /* Or adjust based on sidebar width */
+    margin-left: 10vw;
+  }
+
+.coffee-sidebar {
+    float: right;
+    width: 30%; /* Or a percentage, or a specific pixel value */
   }
 
 

@@ -1,56 +1,68 @@
-{% extends "/Users/portermorgan/Documents/Python/food_blog/coffee/templates/coffee/coffee_base.html" %}
+{% extends "base.html" %}
 
 
 {% block page_title %}
-    <h2> {{ coffee.name }} </h2>
+    <h1> {{ coffee.name }} </h1>
 
-    <big> <em> <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}"> {{ coffee.roaster }} </a> </em> </big>
 {% endblock page_title %}
 
 {% block page_content %}
-    {% if coffee.origin %}
-        <p> <em> Origin: </em> 
-            {% for country in coffee.origin.all %}
-                <a href = "{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %} 
-        </p>
-    {% endif %}
+    <div class="narrow-body">
 
-    {% if coffee.roast_level %}
-        <p> <em> Roast level: </em> <a href = "{% url 'coffee:roast_level' coffee.roast_level %}"> {{ coffee.roast_level.name }} </a>
-        </p>
-    {% endif %}
+        <big> 
 
-    {% if coffee.acidity %}
-        <p> <em> Acidity: </em> <a href = "{% url 'coffee:coffee_acidity' coffee.acidity %}"> {{ coffee.acidity.name }} </a>
-        </p>
-    {% endif %}
+            <br>
+        
+            <p> <em> Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}"> {{ coffee.roaster }} </a> </em> </p>
 
+            {% if coffee.origin %}
+                <p> <em> Origin: </em> 
+                    {% for country in coffee.origin.all %}
+                        <a href = "{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a>{% if not forloop.last %}, {% endif %}
+                    {% endfor %} 
+                </p>
+            {% endif %}
 
-    <p>
-        <em> Cupping notes: </em>
-        {% for cupping_note in coffee.cupping_notes.all %}
-            <a href = "{% url 'coffee:cupping_note' cupping_note %}">{{ cupping_note.name }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </p>
+            {% if coffee.roast_level %}
+                <p> <em> Roast level: </em> <a href = "{% url 'coffee:roast_level' coffee.roast_level %}"> {{ coffee.roast_level.name }} </a>
+                </p>
+            {% endif %}
 
-    {% if coffee.score_set.exists %}
-        <big> Scores <br> </big> {% for score in coffee.score_set.all %}
-            {{ score.critic }}: {{ score.score }} <br>
-        {% endfor %} 
-    {% endif %}
-
-    {% if coffee.comments %}
-        <p>
-            <em> Comments: </em> {{ coffee.comments }}
-        </p>
-    {% endif %}
-    
+            {% if coffee.acidity %}
+                <p> <em> Acidity: </em> <a href = "{% url 'coffee:coffee_acidity' coffee.acidity %}"> {{ coffee.acidity.name }} </a>
+                </p>
+            {% endif %}
 
 
-    <small>
-        Post created on {{ coffee.created_on.date }} <br>
-        Last modified on {{coffee.last_modified.date}}
-    </small>
+            <p>
+                <em> Cupping notes: </em>
+                {% for cupping_note in coffee.cupping_notes.all %}
+                    <a href = "{% url 'coffee:cupping_note' cupping_note %}">{{ cupping_note.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+
+            {% if coffee.score_set.exists %}
+                <big> Scores <br> </big> {% for score in coffee.score_set.all %}
+                    {{ score.critic }}: {{ score.score }} <br>
+                {% endfor %} 
+            {% endif %}
+
+            {% if coffee.comments %}
+                <p>
+                    <em> Comments: </em> {{ coffee.comments }}
+                </p>
+            {% endif %}
+        
+        </big>
+
+        <br> <br>
+
+        <div class="gap_below">
+
+            Post created on {{ coffee.created_on.date }} <br>
+            Last modified on {{coffee.last_modified.date}}
+        </div>
+
+    </div>
     
 {% endblock page_content %}
