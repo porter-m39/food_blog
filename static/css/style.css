@@ -93,13 +93,19 @@ img.framed {
 
 .sidebar {
     float: right;
-    width: 20%; /* Or a percentage, or a specific pixel value */
-    border: 10px solid rgb(255, 242, 175);
-    padding-left: 2vw;
+    width: 17%; /* Or a percentage, or a specific pixel value */
+    padding-left: 3vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    margin-right: 7vw;
+    margin-right: 10vw;
+    border: 10px solid rgb(178, 165, 255);
+    background-color: rgb(255, 242, 175);
+    color: rgb(73, 61, 158); 
   }
+
+.sidebar a{
+    color: rgb(73, 61, 158);  
+}
 
 .coffee-main {
     flex: 1; /* makes  */
@@ -110,13 +116,19 @@ img.framed {
 
 .coffee-sidebar {
     float: right;
-    width: 25%; /* Or a percentage, or a specific pixel value */
-    margin-right:5vw;
-    border: 10px solid rgb(255, 242, 175);
+    width: 22%; /* Or a percentage, or a specific pixel value */
+    margin-right:8vw;
     padding-left: 2vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
+    border: 10px solid rgb(178, 165, 255);
+    background-color: rgb(255, 242, 175);
+    color: rgb(73, 61, 158); 
   }
+
+.coffee-sidebar a{
+    color: rgb(73, 61, 158);
+}
 
 
 footer{
