@@ -21,3 +21,5 @@ Bugs / things to fix
     - Right now, I have separate searches for coffee and food. Make this into one search bar. I think for this, I need to rewrite the search.html file to index both recipes and coffees.
     - Fix coffee search so that it searches origin, comments, cupping notes, etc. (Could do something similar for food search too)
 - See if I can add formatting options for the comments/body of posts and coffees, such as italicizing text, having the option for bullet point lists, etc.
+- Export everything before I deploy
+    - Need to set up import/export options in coffee app
