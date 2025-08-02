@@ -4,6 +4,35 @@ from import_export.admin import ImportExportActionModelAdmin
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export import fields, resources
 
+# the following two functions are from Deep Seek. They create manytomany and foreignkey classes upon import
+
+class CreateForeignKeyWidget(ForeignKeyWidget):
+    def clean(self, value, row=None, *args, **kwargs):
+        # If the roaster doesn't exist, create it
+        if value:
+            obj, created = self.model.objects.get_or_create(
+                name=value,  # Assumes 'name' is the field you're matching
+                defaults={'name': value}  # Add other required fields if needed
+            )
+            return obj
+        return super().clean(value, row, *args, **kwargs)
+    
+class CreateManyToManyWidget(ManyToManyWidget):
+    def clean(self, value, row=None, *args, **kwargs):
+        if not value:
+            return self.model.objects.none()
+        
+        values = [v.strip() for v in value.split(self.separator)]
+        objs = []
+        
+        for val in values:
+            obj, created = self.model.objects.get_or_create(
+                name=val,
+                defaults={'name': val}  # Add other required fields if needed
+            )
+            objs.append(obj)
+            
+        return objs
 
 # Register your models here.
 
@@ -19,18 +48,34 @@ class CuppingNoteAdmin(admin.ModelAdmin):
 class CriticAdmin(admin.ModelAdmin):
     pass
 
-class ScoreAdmin(admin.ModelAdmin):
-    pass
+class ScoreResource(resources.ModelResource):
+    critic = fields.Field(
+        attribute='critic',
+        widget = CreateForeignKeyWidget(Critic, field = 'name')
+    )
+
+    coffee = fields.Field(
+        attribute='coffee',
+        widget = ForeignKeyWidget(Coffee, field = 'name')
+    )
+
+    class Meta:
+        model = Score
+        import_id_fields = () # Empty tuple means don't use IDs
+        fields = ('critic','coffee','score','created_on')
+
+class ScoreAdmin(ImportExportActionModelAdmin):
+    resource_class = ScoreResource
 
 class CoffeeResource(resources.ModelResource):
     roaster = fields.Field(
         attribute='roaster',
-        widget = ForeignKeyWidget(Roaster, field = 'name')
+        widget = CreateForeignKeyWidget(Roaster, field = 'name')
     )
 
     origin = fields.Field(
         attribute='origin',
-        widget=ManyToManyWidget(Country,field='name',separator=', ')
+        widget=CreateManyToManyWidget(Country,field='name',separator=', ')
     )
 
     roast_level = fields.Field(
@@ -45,7 +90,7 @@ class CoffeeResource(resources.ModelResource):
 
     cupping_notes = fields.Field(
         attribute='cupping_notes',
-        widget=ManyToManyWidget(CuppingNote,field='name',separator=', ')
+        widget=CreateManyToManyWidget(CuppingNote,field='name',separator=', ')
     )
 
     class Meta:

@@ -8,7 +8,7 @@ Bugs / things to fix
     - improve Scores class, especially the class meta, so that it returns author + coffee + score
     - figure out how to display relevant scores on coffee details page
 - DONE -- change font. perhaps get rid of bootstrap altogether.
-- Make blog look nicer :/ 
+- DONE -- Make blog look nicer :/ 
     - DONE -- New color scheme?
     - DONE -- change the bold face font so that it's more readable
     - DONE -- make nav bar better
@@ -23,3 +23,4 @@ Bugs / things to fix
 - See if I can add formatting options for the comments/body of posts and coffees, such as italicizing text, having the option for bullet point lists, etc.
 - Export everything before I deploy
     - Need to set up import/export options in coffee app
+- Figure out the following: is there a way to configure the Country class so that if there are no coffees with a certain country listed as its origin, that country automatically gets deleted? Same for cupping notes & roaster. And tags for posts in the food app.

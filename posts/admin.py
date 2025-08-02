@@ -15,10 +15,27 @@ class TagAdmin(admin.ModelAdmin):
     def __str__(self):
         return self.name
     
+class CreateManyToManyWidget(ManyToManyWidget):
+    def clean(self, value, row=None, *args, **kwargs):
+        if not value:
+            return self.model.objects.none()
+        
+        values = [v.strip() for v in value.split(self.separator)]
+        objs = []
+        
+        for val in values:
+            obj, created = self.model.objects.get_or_create(
+                name=val,
+                defaults={'name': val}  # Add other required fields if needed
+            )
+            objs.append(obj)
+            
+        return objs
+    
 class PostResource(resources.ModelResource):
     tags = fields.Field(
         attribute = 'tags',
-        widget=ManyToManyWidget(Tag, field='name', separator=', ')
+        widget=CreateManyToManyWidget(Tag, field='name', separator=', ')
     )
 
     class Meta:
