@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('lemonadmin/', admin.site.urls),
     path('',include("posts.urls")),
     path('coffee/',include("coffee.urls")),
     path('site_search/', views.site_search,name="site_search")
