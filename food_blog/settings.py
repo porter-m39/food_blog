@@ -102,15 +102,15 @@ DATABASES = {
 # change POSTGRES_LOCALLY to true or false depending on whether you want production or development environment
 POSTGRES_LOCALLY = True
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
-    # DATABASES['default'] = dj_database_url.parse(
-    #     env('DATABASE_URL'),
-    #     conn_max_age=600
-    # )
-    DATABASES['default'] =  dj_database_url.config(
-            # Replace this value with your local database's connection string.
-            default='postgresql://postgres:postgres@localhost:5432/food_blog',
-            conn_max_age=600
-        )
+    DATABASES['default'] = dj_database_url.parse(
+        env('DATABASE_URL'),
+        conn_max_age=600
+    )
+    # DATABASES['default'] =  dj_database_url.config(
+    #         # Replace this value with your local database's connection string.
+    #         default='postgresql://postgres:postgres@localhost:5432/food_blog',
+    #         conn_max_age=600
+    #     )
     
 
 
