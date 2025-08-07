@@ -14,13 +14,13 @@ from pathlib import Path
 import os
 import dj_database_url
 
-#from environ import Env
+from environ import Env
 
-# env = Env()
-# Env.read_env()
-# ENVIRONMENT=env('ENVIRONMENT',default='production')
+env = Env()
+Env.read_env()
+ENVIRONMENT=env('ENVIRONMENT',default='production')
 
-ENVIRONMENT=os.environ.get('ENVIRONMENT')
+#ENVIRONMENT=os.environ.get('ENVIRONMENT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,12 +34,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if ENVIRONMENT == 'development':
-#     DEBUG = True
-# else:
-#     DEBUG = False
+if ENVIRONMENT == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'food-blog-qqgs.onrender.com']
 #ALLOWED_HOSTS = ['*']
@@ -115,8 +115,10 @@ DATABASES = {
     #     conn_max_age=600
     # )
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] =  dj_database_url.parse(database_url)
+POSTGRES_LOCALLY = False
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+    database_url = os.environ.get("DATABASE_URL")
+    DATABASES["default"] =  dj_database_url.parse(database_url)
     
 
 
