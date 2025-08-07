@@ -7,9 +7,6 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 import uuid
 
-# using this temporarily while I import old date
-from django.utils import timezone
-
 def generate_unique_slug(title):
     slug = slugify(title)
     unique_slug = slug
@@ -33,8 +30,7 @@ class Post(models.Model):
     source = models.CharField(max_length=200, blank=True)
     source_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(null=False,unique=True)
-    #created_on = models.DateTimeField(auto_now_add=True)
-    created_on = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField("Tag", related_name="posts", blank=True) #tags are optional
     banner = models.ImageField(blank=True) #image not required. No longer include default.png
