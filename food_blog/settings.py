@@ -14,11 +14,13 @@ from pathlib import Path
 import os
 import dj_database_url
 
-from environ import Env
+#from environ import Env
 
-env = Env()
-Env.read_env()
-ENVIRONMENT=env('ENVIRONMENT',default='production')
+# env = Env()
+# Env.read_env()
+# ENVIRONMENT=env('ENVIRONMENT',default='production')
+
+ENVIRONMENT=os.environ.get('ENVIRONMENT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,9 +43,10 @@ DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'food-blog-qqgs.onrender.com']
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
 
-CSRF_TRUSTED_ORIGINS = ['https://food-blog-qqgs.onrender.com']
+#CSRF_TRUSTED_ORIGINS = ['https://food-blog-qqgs.onrender.com']
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS")
 
 
 # Application definition
