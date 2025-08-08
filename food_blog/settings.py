@@ -20,8 +20,6 @@ env = Env()
 Env.read_env()
 ENVIRONMENT=env('ENVIRONMENT',default='production')
 
-#ENVIRONMENT=os.environ.get('ENVIRONMENT')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +29,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-#SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
@@ -44,20 +41,6 @@ else:
         default = ["localhost", "127.0.0.1"]
     )
     CSRF_TRUSTED_ORIGINS=env.list('CSRF_TRUSTED_ORIGINS',default=[])
-
-#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-
-#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'food-blog-qqgs.onrender.com']
-#ALLOWED_HOSTS = ['*']
-#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
-# ALLOWED_HOSTS = env.list(
-#     'ALLOWED_HOSTS',
-#     default = ["localhost", "127.0.0.1"]
-# )
-
-
-#CSRF_TRUSTED_ORIGINS = ['https://food-blog-qqgs.onrender.com']
-#CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split()
 
 
 
@@ -72,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'import_export'
 ]
 
@@ -119,20 +104,13 @@ DATABASES = {
     }
 }
 
-# change POSTGRES_LOCALLY to true or false depending on whether you want production or development environment
-POSTGRES_LOCALLY = False
+# change POSTGRES_LOCALLY to true or false depending on whether you want production or development database
+POSTGRES_LOCALLY = True
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
     DATABASES['default'] = dj_database_url.parse(
         env('DATABASE_URL'),
         conn_max_age=600
     )
-
-# POSTGRES_LOCALLY = False
-# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
-#     database_url = os.environ.get("DATABASE_URL")
-#     DATABASES["default"] =  dj_database_url.parse(database_url)
-    
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -180,9 +158,18 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if ENVIRONMENT=='production' or POSTGRES_LOCALLY == True:
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('CLOUD_API_KEY'),
+    'API_SECRET': env('CLOUD_API_SECRET')
+}
 
 
 # Default primary key field type
