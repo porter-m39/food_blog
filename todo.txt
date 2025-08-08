@@ -24,3 +24,5 @@ Bugs / things to fix
 - Export everything before I deploy
     - Need to set up import/export options in coffee app
 - Figure out the following: is there a way to configure the Country class so that if there are no coffees with a certain country listed as its origin, that country automatically gets deleted? Same for cupping notes & roaster. And tags for posts in the food app.
+- Clean up settings.py file
+- Figure out how to get pictures to always render

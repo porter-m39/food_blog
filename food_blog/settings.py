@@ -30,23 +30,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = env('SECRET_KEY')
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
+#SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
     DEBUG = True
+    ALLOWED_HOSTS = ['*']
 else:
     DEBUG = False
+    ALLOWED_HOSTS = env.list(
+        'ALLOWED_HOSTS',
+        default = ["localhost", "127.0.0.1"]
+    )
+    CSRF_TRUSTED_ORIGINS=env.list('CSRF_TRUSTED_ORIGINS',default=[])
 
 #DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'food-blog-qqgs.onrender.com']
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
+#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split()
+# ALLOWED_HOSTS = env.list(
+#     'ALLOWED_HOSTS',
+#     default = ["localhost", "127.0.0.1"]
+# )
+
 
 #CSRF_TRUSTED_ORIGINS = ['https://food-blog-qqgs.onrender.com']
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split()
+#CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split()
+
 
 
 # Application definition
@@ -108,17 +120,17 @@ DATABASES = {
 }
 
 # change POSTGRES_LOCALLY to true or false depending on whether you want production or development environment
-# POSTGRES_LOCALLY = True
-# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
-    # DATABASES['default'] = dj_database_url.parse(
-    #     env('DATABASE_URL'),
-    #     conn_max_age=600
-    # )
-
 POSTGRES_LOCALLY = False
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
-    database_url = os.environ.get("DATABASE_URL")
-    DATABASES["default"] =  dj_database_url.parse(database_url)
+    DATABASES['default'] = dj_database_url.parse(
+        env('DATABASE_URL'),
+        conn_max_age=600
+    )
+
+# POSTGRES_LOCALLY = False
+# if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+#     database_url = os.environ.get("DATABASE_URL")
+#     DATABASES["default"] =  dj_database_url.parse(database_url)
     
 
 
