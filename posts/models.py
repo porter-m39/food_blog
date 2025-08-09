@@ -34,7 +34,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField("Tag", related_name="posts", blank=True) #tags are optional
-    banner = ResizedImageField([600,600], quality = 85, blank=True) #image not required. No longer include default.png
+    banner = ResizedImageField(size=(600,600), quality = 85, blank=True) #image not required. No longer include default.png
 
     def __str__(self):# this is an example of a method. no migrations needed when implementing.
         return self.title
