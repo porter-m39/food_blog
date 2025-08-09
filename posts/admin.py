@@ -41,7 +41,7 @@ class PostResource(resources.ModelResource):
     class Meta:
         model = Post
         import_id_fields = ()  # Empty tuple means don't use IDs
-        fields = ('title', 'slug', 'created_on', 'last_modified', 'tags', 'source', 'banner', 'body')
+        fields = ('title', 'slug', 'created_on', 'last_modified', 'tags', 'source', 'source_link', 'banner', 'body')
 
 
 class PostAdmin(ImportExportActionModelAdmin):
