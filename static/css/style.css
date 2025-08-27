@@ -1,44 +1,33 @@
- 
+/* This code sets the base for the rem unit. 1rem = 16 pixels, I think. */
+html {
+    font-size: 100%; /* This defaults to 16px on most browsers. 1rem = 16px */
+} 
+
 *{
     margin:0;
-    /* padding-left:1vh; */
     box-sizing: border-box; 
 }
 
 body{
     min-height: 15vh;
     display: grid;  
-    font-size: 1.1vw;
+    font-size: 1rem;
     background-color: rgb(73, 61, 158);
     color:whitesmoke;
-    /* max-width: 1200px; */
-    /* margin-left: 2vw;  */
 }
-
-/* set-up for main content and sidebar to be next to each other. */ 
-.page-container { 
-    display: flex; /* Creates a flex container */
-    gap: 3vw; /* Space between main content and sidebar */
-    justify-content: space-between;
-}
-
-
-
 
 h1{
     padding: auto;
-    font-size: 10vh;
-    margin-left:3vw; /* this is because h1 is used for page titles, which don't inherit the main-content margins */
-    margin-top:3vh;  
-    margin-bottom: 3vh;
+    font-size: 5rem;
+    margin: 1.5rem 1.5rem; /* top/bottom margins set to 1.5rem, same with left/right margins */
 }
 
 h2{
     padding: auto;
     line-height: 1.5;
     font-weight: 500;
-    margin-bottom: 1vh;
-    font-size: 3vw;
+    margin: 1rem 0;
+    font-size: 2rem;
     letter-spacing: .01em;
 }
 
@@ -46,8 +35,8 @@ h3{
     padding: auto;
     line-height: 1.5;
     font-weight: 500;
-    margin-bottom: 2vh;
-    font-size: 1.6vw;
+    margin: 1rem 0;
+    font-size: 1.3rem;
 }
 
 p {
@@ -73,6 +62,7 @@ figure {
     text-align:left;
     display:inline-block; /* Wrap the figure tightly around the content */
     max-width: 100%;
+    height: auto;
 }
 
 
@@ -84,23 +74,31 @@ img.framed {
     margin-bottom: 2vh;
 }
 
+/* set-up for main content and sidebar to be next to each other. */ 
+.page-container { 
+    display: flex; /* Creates a flex container */
+    gap: 1rem; /* Space between main content and sidebar */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+}
+
 .main-content {
     flex: 1; /* makes  */
-    float: left;
-    width: 67%; /* Or adjust based on sidebar width */
-    margin-left: 3vw;
+    max-width: 67%;
+    /* float: left; */
+    /* width: 67%; Or adjust based on sidebar width */
+    /* margin-left: 3vw; */
   }
 
 .sidebar {
-    float: right;
+    /* float: right; */
     width: 17%; /* Or a percentage, or a specific pixel value */
-    padding-left: 3vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding: 1vw 0 1vw 3vw;
     margin-right: 10vw;
     border: 10px solid rgb(255, 242, 175);
     background-color: rgb(178, 165, 255);
     color: rgb(73, 61, 158); 
+    flex-shrink: 0;
   }
 
 .sidebar a{
@@ -207,3 +205,37 @@ input{
     padding: 0.5rem;           /* Add padding for better appearance */
 }
 
+
+/* making website responsive for phones */
+@media (max-width: 767px) {
+    .page-container { 
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar {
+        width: 80%; /* Make sidebar full width */
+        flex: 0 0 auto; /* Override the fixed 250px width */
+        margin: 1rem 0; /* Change to vertical margins */
+        padding: 1rem 2rem;
+        order: 1; /* Optional: Change the order if you want it below the main content */
+        border: 3px solid red; /* DEBUG: See the container's bounds */
+    }
+
+    .main-content {
+        width: 90%; /* Or adjust based on sidebar width */
+        margin: 1rem 0;
+        order: 2;
+        border: 3px solid red; /* DEBUG: See the container's bounds */
+    }
+
+    figure {
+        max-width: 80%;
+    }
+
+}
+
+
+/* THIS IS A TEST. I AM ON THE MAIN BRANCH RIGHT NOW. */
