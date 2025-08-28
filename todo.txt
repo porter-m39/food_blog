@@ -25,10 +25,5 @@ Bugs / things to fix
     - DONE -- Need to set up import/export options in coffee app
 - Figure out the following: is there a way to configure the Country class so that if there are no coffees with a certain country listed as its origin, that country automatically gets deleted? Same for cupping notes & roaster. And tags for posts in the food app.
 - DONE -- Clean up settings.py file
-- DONE -- Figure out how to get pictures to always render
-- DONE -- add media to .gitignore and delete all the photos on the repo
-- Make website responsive, in that it renders differently on a phone versus a computer
-     - DONE -- warm-up: make personal math website responsive 
-- Add comment feature to posts
-- add wash/natural process option for coffee model
-   
+- Figure out how to get pictures to always render
+- add media to .gitignore and delete all the photos on the repo
