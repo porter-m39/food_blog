@@ -1,5 +1,5 @@
 from django.contrib import admin
-from coffee.models import Roaster, Country, CuppingNote, Coffee, Score, Critic, RoastLevel, Acidity
+from coffee.models import Roaster, Country, CuppingNote, Coffee, Score, Critic, RoastLevel, Acidity, Processing
 from import_export.admin import ImportExportActionModelAdmin
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export import fields, resources
@@ -91,6 +91,11 @@ class CoffeeResource(resources.ModelResource):
     cupping_notes = fields.Field(
         attribute='cupping_notes',
         widget=CreateManyToManyWidget(CuppingNote,field='name',separator=', ')
+    )
+
+    processing = fields.Field(
+        attribute='processing',
+        widget = CreateManyToManyWidget(Processing,field='name',separator=', ')
     )
 
     class Meta:

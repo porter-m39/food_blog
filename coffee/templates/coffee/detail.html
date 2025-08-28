@@ -33,6 +33,11 @@
                 </p>
             {% endif %}
 
+            {% if coffee.processing %}
+                <p> <em> Processing: </em> <a href = "{% url 'coffee:processing' coffee.processing %}"> {{ coffee.processing.name }} </a>
+                </p>
+            {% endif %}
+
 
             <p>
                 <em> Cupping notes: </em>
