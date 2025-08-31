@@ -101,7 +101,7 @@ class CoffeeResource(resources.ModelResource):
     class Meta:
         model = Coffee
         import_id_fields = () # Empty tuple means don't use IDs
-        fields = ('name','roaster','origin','roast_level','acidity','cupping_notes','created_on','last_modified','comments')
+        fields = ('name','roaster','origin','roast_level','acidity','processing','cupping_notes','created_on','last_modified','comments')
 
 
 

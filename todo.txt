@@ -31,5 +31,6 @@ Bugs / things to fix
      - DONE -- warm-up: make personal math website responsive 
 - Add comment feature to posts
 - DONE -- add wash/natural process option for coffee model
-- make things listed alphabetically in coffee model 
+- DONE -- make things listed alphabetically in coffee model 
+- Add slugs to coffee posts 
    
