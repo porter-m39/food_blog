@@ -6,11 +6,17 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Roaster(models.Model):
     name = models.CharField(max_length=50)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
 class Country(models.Model):
     name = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -35,6 +41,9 @@ class Processing(models.Model):
 
 class CuppingNote(models.Model):
     name = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
