@@ -162,8 +162,8 @@ footer{
 }
 
 .site-title{
-    font-size: 15vh;
-    margin-bottom: 5vh;
+    font-size: 8rem;
+    margin-bottom: 1rem;
     color: rgb(255, 242, 175);
 }
 
@@ -174,7 +174,7 @@ footer{
 }
 
 .header-link{
-    font-size: 4vh;
+    font-size: 2.5rem;
     color: rgb(255, 242, 175);
 }
 
@@ -188,15 +188,15 @@ footer{
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 300px; /* Control the container width */
+    width: 17rem; /* Control the container width */
+    max-width: 50vw;
 }
 
 /* SEARCH BAR SETTINGS */
 form{
     margin: 0;
     display: flex;
-    flex-grow: 1;
-    max-width: 30vw;
+    flex-grow: 1; 
 }
 
 /* settings for stuff you enter into seach bar */
@@ -206,36 +206,3 @@ input{
 }
 
 
-/* making website responsive for phones */
-@media (max-width: 767px) {
-    .page-container { 
-        flex-direction: column; /* Stack items vertically */
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .sidebar {
-        width: 80%; /* Make sidebar full width */
-        flex: 0 0 auto; /* Override the fixed 250px width */
-        margin: 1rem 0; /* Change to vertical margins */
-        padding: 1rem 2rem;
-        order: 1; /* Optional: Change the order if you want it below the main content */
-        border: 3px solid red; /* DEBUG: See the container's bounds */
-    }
-
-    .main-content {
-        width: 90%; /* Or adjust based on sidebar width */
-        margin: 1rem 0;
-        order: 2;
-        border: 3px solid red; /* DEBUG: See the container's bounds */
-    }
-
-    figure {
-        max-width: 80%;
-    }
-
-}
-
-
-/* THIS IS A TEST. I AM ON THE FRONTEND BRANCH RIGHT NOW. */

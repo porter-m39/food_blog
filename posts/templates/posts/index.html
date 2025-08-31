@@ -2,13 +2,13 @@
 
 {% extends "base.html" %}
 
-{% block page_title %}
+{% comment %} {% block page_title %}
     <h1 style="margin-left:3vw"> all recipes </h1>
-{% endblock page_title %}
+{% endblock page_title %} {% endcomment %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
-    <div class = "page_container">
+    {% comment %} <div class = "page_container">
         <div class = "main-content" style="text-align: center;">
             {% for post in posts %}
                 <h2><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
@@ -35,7 +35,7 @@
                         <h3> {{ tag.name }} </h3> </a>
             {% endfor %}
         </div>
-    </div>
+    </div> {% endcomment %}
 
     
 {% endblock page_content %}

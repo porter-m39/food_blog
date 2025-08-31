@@ -1,0 +1,35 @@
+/* extra stuff I am NOT using right now. */
+
+/* This is an attempt at a media query. I should first fix the regular css code to be better at responsiveness before adding a media query. */
+
+
+/* making website responsive for phones */
+@media (max-width: 767px) {
+    .page-container { 
+        flex-direction: column; /* Stack items vertically */
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar {
+        width: 80%; /* Make sidebar full width */
+        flex: 0 0 auto; /* Override the fixed 250px width */
+        margin: 1rem 0; /* Change to vertical margins */
+        padding: 1rem 2rem;
+        order: 1; /* Optional: Change the order if you want it below the main content */
+        border: 3px solid red; /* DEBUG: See the container's bounds */
+    }
+
+    .main-content {
+        width: 90%; /* Or adjust based on sidebar width */
+        margin: 1rem 0;
+        order: 2;
+        border: 3px solid red; /* DEBUG: See the container's bounds */
+    }
+
+    figure {
+        max-width: 80%;
+    }
+
+}
