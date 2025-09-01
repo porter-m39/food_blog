@@ -33,3 +33,68 @@
     }
 
 }
+
+
+/* TEMPORARILY REMOVING THIS FROM STYLE.CSS */ 
+
+
+
+figure {
+    position:relative;
+    text-align:left;
+    display:inline-block; /* Wrap the figure tightly around the content */
+    max-width: 100%;
+    height: auto;
+}
+
+
+img.framed {
+    /* border: 5px solid whitesmoke;       Add a solid border */
+    padding: 15px;                /* Add space between the image and the border */
+    background-color: rgb(178, 165, 255);    /* Add a background color behind the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-bottom: 2vh;
+}
+
+
+
+
+.coffee-main {
+    flex: 1; /* makes  */
+    float:left;
+    width: 50%; /* Or adjust based on sidebar width */
+    margin-left: 10vw;
+  }
+
+.coffee-sidebar {
+    float: right;
+    width: 22%; /* Or a percentage, or a specific pixel value */
+    margin-right:8vw;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    border: 10px solid rgb(255, 242, 175);
+    background-color: rgb(178, 165, 255);
+    color: rgb(73, 61, 158); 
+  }
+
+.coffee-sidebar a{
+    color: rgb(73, 61, 158);
+}
+
+
+footer{
+    position: relative;
+    bottom: 0; /* Position at bottom of page */
+    left: 0; /* Left of page */
+    margin-bottom: 8vh;
+
+}
+
+
+.narrow-body { /* for post detail pages, so that text is narrower */
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+

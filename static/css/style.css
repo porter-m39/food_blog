@@ -16,137 +16,6 @@ body{
     color:whitesmoke;
 }
 
-h1{
-    padding: auto;
-    font-size: 5rem;
-    margin: 1.5rem 1.5rem; /* top/bottom margins set to 1.5rem, same with left/right margins */
-}
-
-h2{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 1rem 0;
-    font-size: 2rem;
-    letter-spacing: .01em;
-}
-
-h3{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 1rem 0;
-    font-size: 1.3rem;
-}
-
-p {
-    text-align:left;
-    padding: auto; /* maybe this will help make nicer vertical spacing? */ 
-    line-height: 1.5;
-    margin-bottom: 1vh;
-}
-
-a {  /* color of links */
-    text-decoration: none;
-    /* color: rgb(131, 153, 241);  */
-    color: whitesmoke;
-}
-
-a:hover { /* color of links when your cursor is on them */
-    /* opacity: .85; */
-    text-decoration: underline;
-}
-
-figure {
-    position:relative;
-    text-align:left;
-    display:inline-block; /* Wrap the figure tightly around the content */
-    max-width: 100%;
-    height: auto;
-}
-
-
-img.framed {
-    /* border: 5px solid whitesmoke;       Add a solid border */
-    padding: 15px;                /* Add space between the image and the border */
-    background-color: rgb(178, 165, 255);    /* Add a background color behind the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    margin-bottom: 2vh;
-}
-
-/* set-up for main content and sidebar to be next to each other. */ 
-.page-container { 
-    display: flex; /* Creates a flex container */
-    gap: 1rem; /* Space between main content and sidebar */
-    justify-content: space-between;
-    align-items: flex-start; /* Align items to the top */
-}
-
-.main-content {
-    flex: 1; /* makes  */
-    max-width: 67%;
-    /* float: left; */
-    /* width: 67%; Or adjust based on sidebar width */
-    /* margin-left: 3vw; */
-  }
-
-.sidebar {
-    /* float: right; */
-    width: 17%; /* Or a percentage, or a specific pixel value */
-    padding: 1vw 0 1vw 3vw;
-    margin-right: 10vw;
-    border: 10px solid rgb(255, 242, 175);
-    background-color: rgb(178, 165, 255);
-    color: rgb(73, 61, 158); 
-    flex-shrink: 0;
-  }
-
-.sidebar a{
-    color: rgb(73, 61, 158);  
-}
-
-.coffee-main {
-    flex: 1; /* makes  */
-    float:left;
-    width: 50%; /* Or adjust based on sidebar width */
-    margin-left: 10vw;
-  }
-
-.coffee-sidebar {
-    float: right;
-    width: 22%; /* Or a percentage, or a specific pixel value */
-    margin-right:8vw;
-    padding-left: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    border: 10px solid rgb(255, 242, 175);
-    background-color: rgb(178, 165, 255);
-    color: rgb(73, 61, 158); 
-  }
-
-.coffee-sidebar a{
-    color: rgb(73, 61, 158);
-}
-
-
-footer{
-    position: relative;
-    bottom: 0; /* Position at bottom of page */
-    left: 0; /* Left of page */
-    margin-bottom: 8vh;
-
-}
-
-
-.narrow-body { /* for post detail pages, so that text is narrower */
-    padding-left: 15vw;
-    padding-right: 15vw;
-}
-
-.gap_below{
-    margin-bottom: 8vh;
-}
-
 /* HEADER SETTINGS */
 
 .site-header{
@@ -195,8 +64,9 @@ footer{
 /* SEARCH BAR SETTINGS */
 form{
     margin: 0;
-    display: flex;
-    flex-grow: 1; 
+    /* NOT SURE WHY WE HAVE FLEX DISPLAY HERE */ 
+    /* display: flex;
+    flex-grow: 1;  */
 }
 
 /* settings for stuff you enter into seach bar */
@@ -206,3 +76,84 @@ input{
 }
 
 
+h1{
+    padding: auto;
+    font-size: 5rem;
+    /* margin: 1.5rem 1.5rem; top/bottom margins set to 1.5rem, same with left/right margins */
+}
+
+h2{
+    padding: auto;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 1rem 0;
+    font-size: 2rem;
+    letter-spacing: .01em;
+}
+
+h3{
+    padding: auto;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+}
+
+p {
+    text-align:left;
+    padding: auto; /* maybe this will help make nicer vertical spacing? */ 
+    line-height: 1.5;
+    margin-bottom: .5rem;
+}
+
+  .gap_below{
+    margin-bottom: 4rem;
+}
+
+a {  /* color of links */
+    text-decoration: none;
+    /* color: rgb(131, 153, 241);  */
+    color: whitesmoke;
+}
+
+a:hover { /* color of links when your cursor is on them */
+    /* opacity: .85; */
+    text-decoration: underline;
+}
+
+
+/* set-up for main content and sidebar to be next to each other. */ 
+.page-container { 
+    display: flex;
+    gap: 1rem; /* Space between main content and sidebar */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.main-content {
+    display: flex;
+    flex: 1; /* makes  */
+    max-width: 67%;
+    /* float: left; */
+    /* width: 67%; Or adjust based on sidebar width */
+    /* margin-left: 3vw; */
+    margin: 1rem 1rem;
+    text-align: center;
+  }
+
+
+.sidebar {
+    /* float: right; */
+    display: flex;
+    width: 17%; /* Or a percentage, or a specific pixel value */
+    padding: 1vw 0 1vw 3vw;
+    margin-right: 10vw;
+    border: 10px solid rgb(255, 242, 175);
+    background-color: rgb(178, 165, 255);
+    color: rgb(73, 61, 158); 
+    flex-shrink: 0;
+  }
+
+.sidebar a{
+    color: rgb(73, 61, 158);  
+}
