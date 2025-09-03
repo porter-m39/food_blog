@@ -3,13 +3,16 @@
 {% extends "base.html" %} 
 
 {% block page_title %}
-    <h1> all coffees </h1>
+    
 {% endblock page_title %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
-    <div class = "page_container">
+    <div class = "page-container">
         <div class = "coffee-main">
+
+            <h1 style = "margin-bottom: 2rem;"> all coffees </h1>
+
             {% for coffee in coffees %}
                 <h2><a href = "{% url 'coffee:coffee_detail' coffee.pk %}">{{ coffee.name }}</a> </h2>
                 <p> 
@@ -20,10 +23,10 @@
                 </p>
             {% endfor %}
         </div>
-
+        
         <div class="coffee-sidebar">
 
-            <h2> Filters </h2> <br> 
+            <h2> Filters </h2> 
 
             <h3> Roaster </h3>
 
@@ -45,7 +48,7 @@
 
             <h3> Roast level </h3>
 
-            <div style="display: flex; gap: 40px;">
+            <div style="display: flex; justify-content: space-between;">
                 <a href = "{% url 'coffee:roast_level' "light" %}">{{ "light" }}</a> 
                 <a href = "{% url 'coffee:roast_level' "medium" %}">{{ "medium" }}</a> 
                 <a href = "{% url 'coffee:roast_level' "dark" %}">{{ "dark" }}</a>  <br><br>
@@ -53,7 +56,7 @@
 
             <h3> Acidity </h3>
 
-            <div style="display: flex; gap: 40px;">
+            <div style="display: flex; justify-content: space-between">
                 <a href = "{% url 'coffee:coffee_acidity' "low" %}">{{ "low" }}</a> 
                 <a href = "{% url 'coffee:coffee_acidity' "medium" %}">{{ "medium" }}</a> 
                 <a href = "{% url 'coffee:coffee_acidity' "high" %}">{{ "high" }}</a>  <br><br>
