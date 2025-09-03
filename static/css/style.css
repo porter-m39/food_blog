@@ -5,16 +5,97 @@ html {
 
 *{
     margin:0;
+    padding: 0;
     box-sizing: border-box; 
 }
 
-body{
-    min-height: 15vh;
-    display: grid;  
+header {
+    width: 100%;
+}
+
+body {
     font-size: 1rem;
     background-color: rgb(73, 61, 158);
-    color:whitesmoke;
+    color: whitesmoke;
+    margin: 0; /* Ensure body has no margin */
+    padding: 0; /* Ensure body has no padding */
+    width: 100vw; /* Ensure body takes full width */
+    
+
+    /* no idea WHY this needs to be here but the header falls apart without it x( */
+    display: grid;
 }
+
+
+
+
+/* FONT STYLING */
+
+h1{
+    padding: auto;
+    font-size: 5rem;
+    /* margin: 1.5rem 1.5rem; top/bottom margins set to 1.5rem, same with left/right margins */
+}
+
+h2{
+    padding: auto;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: .01em;
+}
+
+h3{
+    padding: auto;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+}
+
+p {
+    text-align:left;
+    padding: auto; /* maybe this will help make nicer vertical spacing? */ 
+    line-height: 1.5;
+    margin-bottom: .5rem;
+}
+
+  .gap_below{
+    margin-bottom: 4rem;
+}
+
+
+footer{
+    position: relative;
+    bottom: 0; /* Position at bottom of page */
+    left: 0; /* Left of page */
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+}
+
+
+.narrow-body { /* for post detail pages, so that text is narrower */
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+
+
+
+
+a {  /* color of links */
+    text-decoration: none;
+    /* color: rgb(131, 153, 241);  */
+    color: whitesmoke;
+}
+
+a:hover { /* color of links when your cursor is on them */
+    /* opacity: .85; */
+    text-decoration: underline;
+}
+
+
 
 /* HEADER SETTINGS */
 
@@ -28,6 +109,9 @@ body{
     box-sizing: border-box; /* Include padding in width calculation */
     border-bottom: 20px solid rgb(255, 242, 175);
     border-top: 20px solid rgb(255, 242, 175);
+    /* Added to ensure full width on mobile */
+    left: 0;
+    right: 0;
 }
 
 .site-title{
@@ -75,85 +159,95 @@ input{
     padding: 0.5rem;           /* Add padding for better appearance */
 }
 
-
-h1{
-    padding: auto;
-    font-size: 5rem;
-    /* margin: 1.5rem 1.5rem; top/bottom margins set to 1.5rem, same with left/right margins */
-}
-
-h2{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 1rem 0;
-    font-size: 2rem;
-    letter-spacing: .01em;
-}
-
-h3{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 1rem 0;
-    font-size: 1.3rem;
-}
-
-p {
-    text-align:left;
-    padding: auto; /* maybe this will help make nicer vertical spacing? */ 
-    line-height: 1.5;
-    margin-bottom: .5rem;
-}
-
-  .gap_below{
-    margin-bottom: 4rem;
-}
-
-a {  /* color of links */
-    text-decoration: none;
-    /* color: rgb(131, 153, 241);  */
-    color: whitesmoke;
-}
-
-a:hover { /* color of links when your cursor is on them */
-    /* opacity: .85; */
-    text-decoration: underline;
-}
-
-
 /* set-up for main content and sidebar to be next to each other. */ 
 .page-container { 
     display: flex;
     gap: 1rem; /* Space between main content and sidebar */
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start; /* Align items to the top */
 }
 
 .main-content {
-    display: flex;
-    flex: 1; /* makes  */
     max-width: 67%;
-    /* float: left; */
-    /* width: 67%; Or adjust based on sidebar width */
-    /* margin-left: 3vw; */
+    width: 67%; /* Or adjust based on sidebar width */
     margin: 1rem 1rem;
     text-align: center;
   }
 
 
 .sidebar {
-    /* float: right; */
-    display: flex;
     width: 17%; /* Or a percentage, or a specific pixel value */
     padding: 1vw 0 1vw 3vw;
-    margin-right: 10vw;
+    margin-right: 5%;
+    margin-top: 3rem;
     border: 10px solid rgb(255, 242, 175);
     background-color: rgb(178, 165, 255);
     color: rgb(73, 61, 158); 
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
   }
 
 .sidebar a{
     color: rgb(73, 61, 158);  
 }
+
+.coffee-main {
+    width: 60%; /* Or adjust based on sidebar width */
+    margin: 3rem 5rem;
+  }
+
+.coffee-sidebar {
+    width: 30%; /* Or a percentage, or a specific pixel value */
+    margin-right:5%;
+    margin-top: 3rem;
+    padding: 1vw 0 1vw 3vw;
+    border: 10px solid rgb(255, 242, 175);
+    background-color: rgb(178, 165, 255);
+    color: rgb(73, 61, 158); 
+  }
+
+.coffee-sidebar a{
+    color: rgb(73, 61, 158);
+}
+
+
+/* IMAGES */
+
+
+
+figure {
+    position:relative;
+    text-align:center;
+    display:inline-block; /* Wrap the figure tightly around the content */
+    height: auto;
+}
+
+
+img.framed {
+    /* border: 5px solid whitesmoke;       Add a solid border */
+    padding: 15px;                /* Add space between the image and the border */
+    background-color: rgb(178, 165, 255);    /* Add a background color behind the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+@media (max-width: 767px) {
+    img.framed {
+        max-width: 350px;
+        height: auto;
+    }
+
+    .narrow-body { /* for post detail pages, so that text is narrower */
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+
+    .coffee-main {
+        margin: 2rem 2rem;
+    }
+}
+
