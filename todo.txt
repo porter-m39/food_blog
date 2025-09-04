@@ -27,7 +27,7 @@ Bugs / things to fix
 - DONE -- Clean up settings.py file
 - DONE -- Figure out how to get pictures to always render
 - DONE -- add media to .gitignore and delete all the photos on the repo
-- Make website responsive, in that it renders differently on a phone versus a computer
+- DONE -- Make website responsive, in that it renders differently on a phone versus a computer
      - DONE -- warm-up: make personal math website responsive 
 - Add comment feature to posts
 - DONE -- add wash/natural process option for coffee model
