@@ -1,5 +1,5 @@
 from django.contrib import admin
-from posts.models import Post, Tag
+from posts.models import Post, Tag, Comment
 from import_export.admin import ImportExportActionModelAdmin
 from import_export.widgets import ManyToManyWidget
 from import_export import fields, resources
@@ -14,6 +14,10 @@ from import_export import fields, resources
 class TagAdmin(admin.ModelAdmin):
     def __str__(self):
         return self.name
+    
+class CommentAdmin(admin.ModelAdmin):
+    def __str__(self):
+        return f"{self.author} on '{self.post}'"
     
 class CreateManyToManyWidget(ManyToManyWidget):
     def clean(self, value, row=None, *args, **kwargs):
@@ -68,3 +72,4 @@ class PostAdmin(ImportExportActionModelAdmin):
 
 admin.site.register(Tag,TagAdmin)
 admin.site.register(Post,PostAdmin)
+admin.site.register(Comment,CommentAdmin)

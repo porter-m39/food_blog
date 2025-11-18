@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from posts.models import Post, Tag
-from django.views.generic import ListView
-from django.db.models import Q
+from posts.models import Post, Tag, Comment
+from django.http import HttpResponseRedirect
+from posts.forms import CommentForm
 
 # Create your views here.
 
@@ -28,7 +28,21 @@ def post_tag(request, tag):
 
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
+    form = CommentForm()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = Comment(
+                author = form.cleaned_data["author"],
+                body = form.cleaned_data["body"],
+                post = post
+            )
+            comment.save()
+            return HttpResponseRedirect(request.path_info)
+    comments = Comment.objects.filter(post=post)
     context = {
         "post":post,
+        "comments":comments,
+        "form":CommentForm(),
     }
     return render(request, "posts/detail.html",context)
