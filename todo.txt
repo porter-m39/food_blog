@@ -34,4 +34,6 @@ Bugs / things to fix
 - DONE -- add wash/natural process option for coffee model
 - DONE -- make things listed alphabetically in coffee model 
 - Add slugs to coffee posts 
+- Change processing attribute so that you can select two different processing methods
+- Change admin so that an email is linked ?
    
