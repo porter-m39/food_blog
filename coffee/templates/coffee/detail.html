@@ -35,11 +35,12 @@
                 </p>
             {% endif %}
 
-            {% if coffee.processing %}
-                <em> Processing: </em>
+            {% if coffee.processing.exists %}
+                <p> <em> Processing: </em>
                 {% for processing in coffee.processing.all %}
                     <a href = "{% url 'coffee:processing' processing %}">{{ processing.name }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}
+                </p>
             {% endif %}
 
 
