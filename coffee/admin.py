@@ -95,7 +95,7 @@ class CoffeeResource(resources.ModelResource):
 
     processing = fields.Field(
         attribute='processing',
-        widget = CreateManyToManyWidget(Processing,field='name',separator=', ')
+        widget = ForeignKeyWidget(Processing,field='name')
     )
 
     class Meta:
