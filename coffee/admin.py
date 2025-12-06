@@ -56,7 +56,7 @@ class ScoreResource(resources.ModelResource):
 
     coffee = fields.Field(
         attribute='coffee',
-        widget = ForeignKeyWidget(Coffee, field = 'name')
+        widget = CreateForeignKeyWidget(Coffee, field = 'name')
     )
 
     class Meta:
@@ -80,12 +80,12 @@ class CoffeeResource(resources.ModelResource):
 
     roast_level = fields.Field(
         attribute='roast_level',
-        widget = ForeignKeyWidget(RoastLevel, field = 'name')
+        widget = CreateForeignKeyWidget(RoastLevel, field = 'name')
     )
 
     acidity = fields.Field(
         attribute='acidity',
-        widget = ForeignKeyWidget(Acidity, field = 'name')
+        widget = CreateForeignKeyWidget(Acidity, field = 'name')
     )
 
     cupping_notes = fields.Field(
@@ -95,7 +95,7 @@ class CoffeeResource(resources.ModelResource):
 
     processing = fields.Field(
         attribute='processing',
-        widget = ForeignKeyWidget(Processing,field='name')
+        widget = CreateManyToManyWidget(Processing,field='name',separator=', ')
     )
 
     class Meta:

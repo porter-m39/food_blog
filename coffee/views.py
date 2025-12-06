@@ -72,12 +72,12 @@ def acidity(request, acidity):
     }
     return render(request, "coffee/acidity.html",context)
 
-def processing(request, processing):
+def processing(request,processing):
     coffees = Coffee.objects.filter(
-        processing__name = processing
+        processing__name__contains = processing
     ).order_by("-created_on")
     context = {
         "processing":processing,
-        "coffees":coffees,
+        "coffees": coffees,
     }
-    return render(request, "coffee/processing.html",context)
+    return render(request, "coffee/processing.html", context)

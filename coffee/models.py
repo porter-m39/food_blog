@@ -77,7 +77,7 @@ class Coffee(models.Model):
     origin = models.ManyToManyField("Country", related_name="coffees",blank=True) # Can search all coffees from a country using [country_name].coffees
     roast_level = models.ForeignKey("RoastLevel",on_delete=models.CASCADE,blank=True,null=True)
     acidity = models.ForeignKey("Acidity",on_delete=models.CASCADE,blank=True,null=True)
-    processing = models.ForeignKey("Processing",on_delete=models.CASCADE,blank=True,null=True)
+    processing = models.ManyToManyField("Processing", related_name="coffees",blank=True)
     cupping_notes = models.ManyToManyField("CuppingNote", related_name = "coffees",blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)

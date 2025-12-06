@@ -36,8 +36,10 @@
             {% endif %}
 
             {% if coffee.processing %}
-                <p> <em> Processing: </em> <a href = "{% url 'coffee:processing' coffee.processing %}"> {{ coffee.processing.name }} </a>
-                </p>
+                <em> Processing: </em>
+                {% for processing in coffee.processing.all %}
+                    <a href = "{% url 'coffee:processing' processing %}">{{ processing.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
             {% endif %}
 
 
