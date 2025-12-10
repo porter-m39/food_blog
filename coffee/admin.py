@@ -101,12 +101,13 @@ class CoffeeResource(resources.ModelResource):
     class Meta:
         model = Coffee
         import_id_fields = () # Empty tuple means don't use IDs
-        fields = ('name','roaster','origin','roast_level','acidity','processing','cupping_notes','created_on','last_modified','comments')
+        fields = ('name','roaster','slug','origin','roast_level','acidity','processing','cupping_notes','created_on','last_modified','comments')
 
 
 
 class CoffeeAdmin(ImportExportActionModelAdmin):
     resource_class = CoffeeResource
+    prepopulated_fields = {"slug": ("name",)} #automatically generates slug as you create a coffee
     list_display = ["name", "roaster", "created_on"]
     search_fields = ["name","roaster__name"]
 

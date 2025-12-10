@@ -7,7 +7,7 @@ app_name = 'coffee' #this designates that the names of the URLs below belong to 
 
 urlpatterns = [
     path("", views.coffee_index,name="coffee_index"),
-    path("coffee/<int:pk>/", views.coffee_detail, name="coffee_detail"),
+    path('<slug:slug>', views.coffee_detail, name="coffee_detail"),
     path("roaster/<roaster>/",views.coffee_roaster,name="coffee_roaster"),
     path("origin/<country>/",views.coffee_origin,name="coffee_origin"),
     path("cupping_note/<cupping_note>", views.cupping_note, name="cupping_note"),

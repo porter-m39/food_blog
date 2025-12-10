@@ -1,6 +1,12 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+# all stuff I need for custom slugs
+from django.utils.text import slugify
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+import uuid
+
 # Create your models here.
 
 class Roaster(models.Model):
@@ -75,6 +81,7 @@ class Coffee(models.Model):
     name = models.CharField(max_length=250)
     roaster = models.ForeignKey("Roaster", on_delete=models.CASCADE) # CASCADE part makes sure the roaster info is deleted when a coffee is deleted
     origin = models.ManyToManyField("Country", related_name="coffees",blank=True) # Can search all coffees from a country using [country_name].coffees
+    slug = models.SlugField(null = False, unique=True)
     roast_level = models.ForeignKey("RoastLevel",on_delete=models.CASCADE,blank=True,null=True)
     acidity = models.ForeignKey("Acidity",on_delete=models.CASCADE,blank=True,null=True)
     processing = models.ManyToManyField("Processing", related_name="coffees",blank=True)
@@ -82,11 +89,11 @@ class Coffee(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     comments = models.TextField(blank=True)
+    
 
     class Meta:
         ordering = ['-created_on'] 
 
     def __str__(self):
         return self.name
-
-
+    

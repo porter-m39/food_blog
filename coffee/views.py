@@ -15,8 +15,8 @@ def coffee_index(request):
     }
     return render(request,"coffee/index.html",context) 
 
-def coffee_detail(request, pk):
-    coffee = Coffee.objects.get(pk=pk)
+def coffee_detail(request, slug):
+    coffee = Coffee.objects.get(slug=slug)
     context = {
         "coffee" : coffee
     }
