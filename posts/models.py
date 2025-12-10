@@ -1,21 +1,20 @@
 from django.db import models
-
-# auto slug imports
-from django.db import models
-from django.utils.text import slugify
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
-import uuid
 from django_resized import ResizedImageField
 
-def generate_unique_slug(title):
-    slug = slugify(title)
-    unique_slug = slug
-    num = 1
-    while Post.objects.filter(slug=unique_slug).exists():
-        unique_slug = f'{slug}-{uuid.uuid4().hex[:4]}'  # or {num}
-        num += 1
-    return unique_slug
+# ALL OF THE STUFF FOR GENERATING A NEW SLUG DOES NOT CURRENTLY WORK, AS WRITTEN, WHICH IS WHY IT'S ALL COMMENTED OUT. THE FUNCTION AND RECIEVER ARE NOT ACTUALLY BEING CALLED.
+# from django.utils.text import slugify
+# from django.db.models.signals import pre_save
+# from django.dispatch import receiver
+# import uuid
+
+# def generate_unique_slug(title):
+#     slug = slugify(title)
+#     unique_slug = slug
+#     num = 1
+#     while Post.objects.filter(slug=unique_slug).exists():
+#         unique_slug = f'{slug}-{uuid.uuid4().hex[:4]}'  # or {num}
+#         num += 1
+#     return unique_slug
 
 # Create your models here.
 
@@ -39,10 +38,10 @@ class Post(models.Model):
     def __str__(self):# this is an example of a method. no migrations needed when implementing.
         return self.title
     
-@receiver(pre_save, sender=Post)
-def generate_slug(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = generate_unique_slug(instance.title)
+# @receiver(pre_save, sender=Post)
+# def generate_slug(sender, instance, *args, **kwargs):
+#     if not instance.slug:
+#         instance.slug = generate_unique_slug(instance.title)
 
 class Comment(models.Model):
     author = models.CharField(max_length=60)

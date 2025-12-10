@@ -1,12 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-# all stuff I need for custom slugs
-from django.utils.text import slugify
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
-import uuid
-
 # Create your models here.
 
 class Roaster(models.Model):
