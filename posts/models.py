@@ -27,8 +27,8 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=225)
-    body = CKEditor5Field(blank=True, config_name='extends') #body optional, in case you just want a headline or picture
-    #body = models.TextField(blank=True)
+    #body = CKEditor5Field(blank=True, config_name='extends') #body optional, in case you just want a headline or picture
+    body = models.TextField(blank=True)
     source = models.CharField(max_length=200, blank=True)
     source_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(null=False,unique=True)

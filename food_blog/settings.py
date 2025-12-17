@@ -106,7 +106,7 @@ DATABASES = {
 }
 
 # change POSTGRES_LOCALLY to true or false depending on whether you want production or development database
-POSTGRES_LOCALLY = False
+POSTGRES_LOCALLY = True
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
     DATABASES['default'] = dj_database_url.parse(
         env('DATABASE_URL'),
