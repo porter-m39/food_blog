@@ -24,7 +24,10 @@ urlpatterns = [
     path('lemonadmin/', admin.site.urls),
     path('',include("posts.urls")),
     path('coffee/',include("coffee.urls")),
-    path('site_search/', views.site_search,name="site_search")
+    path('site_search/', views.site_search,name="site_search"),
+
+    #ckeditor 
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

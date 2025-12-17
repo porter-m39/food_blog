@@ -1,7 +1,8 @@
 from django.db import models
 from django_resized import ResizedImageField
+from django_ckeditor_5.fields import CKEditor5Field
 
-# ALL OF THE STUFF FOR GENERATING A NEW SLUG DOES NOT CURRENTLY WORK, AS WRITTEN, WHICH IS WHY IT'S ALL COMMENTED OUT. THE FUNCTION AND RECIEVER ARE NOT ACTUALLY BEING CALLED.
+# ALL OF THE STUFF FOR GENERATING A UNIQUE SLUG DOES NOT CURRENTLY WORK, AS WRITTEN, WHICH IS WHY IT'S ALL COMMENTED OUT. THE FUNCTION AND RECIEVER ARE NOT ACTUALLY BEING CALLED.
 # from django.utils.text import slugify
 # from django.db.models.signals import pre_save
 # from django.dispatch import receiver
@@ -26,7 +27,8 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=225)
-    body = models.TextField(blank=True) #body optional, in case you just want a headline or picture
+    body = CKEditor5Field(blank=True, config_name='extends') #body optional, in case you just want a headline or picture
+    #body = models.TextField(blank=True)
     source = models.CharField(max_length=200, blank=True)
     source_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(null=False,unique=True)
