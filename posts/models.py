@@ -1,6 +1,6 @@
 from django.db import models
 from django_resized import ResizedImageField
-from django_ckeditor_5.fields import CKEditor5Field
+#from django_ckeditor_5.fields import CKEditor5Field
 
 # ALL OF THE STUFF FOR GENERATING A UNIQUE SLUG DOES NOT CURRENTLY WORK, AS WRITTEN, WHICH IS WHY IT'S ALL COMMENTED OUT. THE FUNCTION AND RECIEVER ARE NOT ACTUALLY BEING CALLED.
 # from django.utils.text import slugify
