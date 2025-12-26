@@ -21,6 +21,8 @@ Bugs / things to fix
     - Right now, I have separate searches for coffee and food. Make this into one search bar. I think for this, I need to rewrite the search.html file to index both recipes and coffees.
     - Fix coffee search so that it searches origin, comments, cupping notes, etc. (Could do something similar for food search too)
 - See if I can add formatting options for the comments/body of posts and coffees, such as italicizing text, having the option for bullet point lists, etc.
+    - Edit configurations for ckeditor5 so that they're to your liking
+    - make it so that links in posts show up a different color
 - DONE -- Export everything before I deploy
     - DONE -- Need to set up import/export options in coffee app
 - Figure out the following: is there a way to configure the Country class so that if there are no coffees with a certain country listed as its origin, that country automatically gets deleted? Same for cupping notes & roaster. And tags for posts in the food app.

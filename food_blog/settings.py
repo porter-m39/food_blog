@@ -106,7 +106,7 @@ DATABASES = {
 }
 
 # change POSTGRES_LOCALLY to true or false depending on whether you want production or development database
-POSTGRES_LOCALLY = True
+POSTGRES_LOCALLY = False
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
     DATABASES['default'] = dj_database_url.parse(
         env('DATABASE_URL'),
@@ -190,6 +190,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCOUNT_USERNAME_BLACKLIST = ['admin','post','coffee','lemonadmin']
 
 # ckeditor stuff
+# link to configurations provided in ckeditor5 documentation:
+#  https://pypi.org/project/django-ckeditor-5/
 
 customColorPalette = [
     {
@@ -227,20 +229,14 @@ CKEDITOR_5_CONFIGS = {
 
     },
     'extends': {
-        'blockToolbar': [
-            'paragraph', 'heading1', 'heading2', 'heading3',
-            '|',
-            'bulletedList', 'numberedList',
-            '|',
-            'blockQuote',
-        ],
         'toolbar': {
-            'items': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-                        'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
-                    'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
+            'items': [
+                'heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 
+            'strikethrough','subscript', 'superscript','|',  'bulletedList', 'numberedList', 
+                    '|',  'blockQuote', 'imageUpload', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 
                     'insertTable',
-                    ],
+                ],
             'shouldNotGroupWhenFull': 'true'
         },
         'image': {
