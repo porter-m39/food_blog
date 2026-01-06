@@ -1,7 +1,7 @@
 /* This code sets the base for the rem unit. 1rem = 16 pixels, I think. */
 html {
     font-size: 100%; /* This defaults to 16px on most browsers. 1rem = 16px */
-    background-color: rgb(255, 242, 175);
+    /* background-color: rgb(255, 242, 175); */
 } 
 
 *{
