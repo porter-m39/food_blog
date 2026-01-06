@@ -14,7 +14,9 @@
         <div class = "main-content">
             
             {% for post in posts %}
-                <h2><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
+                <div class = "white-link">
+                    <h2><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
+                </div>
                 <em> {{ post.created_on.date }} </em><br><br>
 
                 {% if post.banner %}

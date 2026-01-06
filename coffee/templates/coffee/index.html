@@ -14,7 +14,9 @@
             <h1 style = "margin-bottom: 2rem;"> all coffees </h1>
 
             {% for coffee in coffees %}
-                <h2><a href = "{% url 'coffee:coffee_detail' slug=coffee.slug %}">{{ coffee.name }}</a> </h2>
+                <div class = "white-link">
+                    <h2><a href = "{% url 'coffee:coffee_detail' slug=coffee.slug %}">{{ coffee.name }}</a> </h2>
+                </div>
                 <p> 
                     Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
                             {{ coffee.roaster }} </a> <br>

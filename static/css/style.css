@@ -1,6 +1,7 @@
 /* This code sets the base for the rem unit. 1rem = 16 pixels, I think. */
 html {
     font-size: 100%; /* This defaults to 16px on most browsers. 1rem = 16px */
+    background-color: rgb(255, 242, 175);
 } 
 
 *{
@@ -81,13 +82,26 @@ footer{
     padding-right: 15rem;
 }
 
+/* settings for bullet-point list */
+ul {
+    list-style-type: disc; /* Default bullet style (can be changed) */
+    padding-left: 1.5rem;    /* Add some padding for better spacing */
+}
+li {
+    margin-bottom: 1vh;  /* Add space between list items */
+    line-height: 1.5;
+    padding-left: 1rem;
+    padding-right: 8rem;
+}
+
+
 
 
 
 a {  /* color of links */
     text-decoration: none;
-    /* color: rgb(131, 153, 241);  */
-    color: whitesmoke;
+    color: rgb(255, 242, 175); 
+    /* color: whitesmoke; */
 }
 
 a:hover { /* color of links when your cursor is on them */
@@ -95,6 +109,9 @@ a:hover { /* color of links when your cursor is on them */
     text-decoration: underline;
 }
 
+.white-link a {
+    color: whitesmoke;
+}
 
 
 /* HEADER SETTINGS */
