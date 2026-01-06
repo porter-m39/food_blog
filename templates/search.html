@@ -10,7 +10,9 @@
 
         <h2> Recipes </h2> <br>
         {% for post in posts %}
-                <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
+                <div class = "white-link">
+                    <h3><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h3>
+                </div>
                 <em> {{ post.created_on.date }} </em><br><br>
                 <br> <br>
             {% endfor %}
@@ -18,7 +20,9 @@
         <h2> Coffees </h2> <br>
         
         {% for coffee in coffees %}
-            <h3><a href = "{% url 'coffee:coffee_detail' slug=coffee.slug %}">{{ coffee.name }}</a> </h3>
+            <div class = "white-link">
+                <h3><a href = "{% url 'coffee:coffee_detail' slug=coffee.slug %}">{{ coffee.name }}</a> </h3>
+            </div>
             <p> 
                 Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
                         {{ coffee.roaster }} </a> <br>
