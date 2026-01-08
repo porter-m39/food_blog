@@ -249,9 +249,6 @@ img.framed {
 }
 
 
-
-
-
 @media (max-width: 767px) {
     img.framed {
         max-width: 350px;
