@@ -1,54 +1,47 @@
 <!-- posts/templates/posts/index.html -->
 
-{% extends "base.html" %}
-
-{% block page_title %}
-    <h1 class = "main-content" style="margin-bottom:2rem;"> all recipes </h1>
+{% extends "base.html" %} {% block page_title %}
+<h1 class="main-content" style="margin-bottom: 2rem">all recipes</h1>
 {% endblock page_title %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
 
-    <div class = "page-container">
+<div class="page-container">
+  <div class="main-content">
+    {% for post in posts %}
+    <div class="white-link">
+      <h2>
+        <a href="{% url 'posts:post_detail' slug=post.slug %}">
+          {{ post.title }}
+        </a>
+      </h2>
+    </div>
+    <em> {{ post.created_on.date }} </em><br /><br />
 
-        <div class = "main-content">
-            
-            {% for post in posts %}
-                <div class = "white-link">
-                    <h2><a href = "{% url 'posts:post_detail' slug=post.slug %}"> {{ post.title }} </a></h2>
-                </div>
-                <em> {{ post.created_on.date }} </em><br><br>
+    {% if post.banner %}
+    <figure>
+      <img
+        class="framed"
+        src="{{ post.banner.url }}"
+        alt="{{ post.title }}"
+        style="max-width: 500px; max-height: 500px; text-align: center"
+      />
+    </figure>
 
-                {% if post.banner %}
-                    <figure>
-                        <img
-                            class = "framed"
-                            src = "{{ post.banner.url }}"
-                            alt = "{{ post.title }}"
-                            style = "max-width: 500px; max-height: 500px; text-align: center;"
-                        />
-                    </figure>
+    {% endif %}
 
-                
-                    
-                {% endif %}
+    <br />
+    <br />
+    {% endfor %}
+  </div>
 
-                
-                
-                <br> <br>
-            {% endfor %}
-        </div>
+  <div class="sidebar">
+    <h2>Tags</h2>
+    {% for tag in tags %}
+    <a href="{% url 'posts:post_tag' tag.name %}"> <h3>{{ tag.name }}</h3> </a>
+    {% endfor %}
+  </div>
+</div>
 
-        <div class = "sidebar">
-            <h2> Tags </h2>
-            {% for tag in tags %}
-                    <a href="{% url 'posts:post_tag' tag.name %}">
-                        <h3> {{ tag.name }} </h3> </a>
-            {% endfor %}
-        </div>  
-
-
-    </div> 
-
-    
 {% endblock page_content %}

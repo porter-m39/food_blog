@@ -39,5 +39,5 @@ Bugs / things to fix
 - DONE -- Change processing attribute so that you can select two different processing methods
 - change cupping notes format in coffee (still undecided about if I want this change or not.)
 - Change admin so that an email is linked ?
-- fix background color... changing html color to yellow shows the recurring issue with the grid layout in style.css 
+- fix background color... changing html color to yellow shows the recurring issue with the grid layout in style.css
    

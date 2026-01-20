@@ -48,6 +48,9 @@ class CuppingNoteAdmin(admin.ModelAdmin):
 class CriticAdmin(admin.ModelAdmin):
     pass
 
+class ProcessingAdmn(admin.ModelAdmin):
+    pass
+
 class ScoreResource(resources.ModelResource):
     critic = fields.Field(
         attribute='critic',
@@ -118,3 +121,4 @@ admin.site.register(CuppingNote,CuppingNoteAdmin)
 admin.site.register(Coffee,CoffeeAdmin)
 admin.site.register(Critic,CriticAdmin)
 admin.site.register(Score,ScoreAdmin)
+admin.site.register(Processing,ProcessingAdmn)
