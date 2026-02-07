@@ -1,303 +1,295 @@
 /* This code sets the base for the rem unit. 1rem = 16 pixels, I think. */
 html {
-    font-size: 100%; /* This defaults to 16px on most browsers. 1rem = 16px */
-    /* background-color: rgb(255, 242, 175); */
-} 
+  font-size: 100%; /* This defaults to 16px on most browsers. 1rem = 16px */
+  /* background-color: rgb(255, 242, 175); */
+}
 
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box; 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
-    width: 100%;
+  width: 100%;
 }
 
 body {
-    font-size: 1rem;
-    background-color: rgb(73, 61, 158);
-    color: whitesmoke;
-    margin: 0; /* Ensure body has no margin */
-    padding: 0; /* Ensure body has no padding */
-    width: 100vw; /* Ensure body takes full width */
-    
+  font-size: 1rem;
+  background-color: rgb(73, 61, 158);
+  color: whitesmoke;
+  margin: 0; /* Ensure body has no margin */
+  padding: 0; /* Ensure body has no padding */
+  width: 100vw; /* Ensure body takes full width */
 
-    /* no idea WHY this needs to be here but the header falls apart without it x( */
-    display: grid;
+  /* no idea WHY this needs to be here but the header falls apart without it x( */
+  display: grid;
 }
-
-
-
 
 /* FONT STYLING */
 
-h1{
-    padding: auto;
-    font-size: 5rem;
-    /* margin: 1.5rem 1.5rem; top/bottom margins set to 1.5rem, same with left/right margins */
+h1 {
+  padding: auto;
+  font-size: 5rem;
+  /* margin: 1.5rem 1.5rem; top/bottom margins set to 1.5rem, same with left/right margins */
 }
 
-h2{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: .01em;
+h2 {
+  padding: auto;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 0.01em;
 }
 
-h3{
-    padding: auto;
-    line-height: 1.5;
-    font-weight: 500;
-    margin: 1rem 0;
-    font-size: 1.3rem;
+h3 {
+  padding: auto;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 1rem 0;
+  font-size: 1.3rem;
 }
 
 p {
-    text-align:left;
-    padding: auto; /* maybe this will help make nicer vertical spacing? */ 
-    line-height: 1.5;
-    margin-bottom: .5rem;
+  text-align: left;
+  padding: auto; /* maybe this will help make nicer vertical spacing? */
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
 
-  .gap_below{
-    margin-bottom: 4rem;
+.gap_below {
+  margin-bottom: 4rem;
 }
 
-
-footer{
-    position: relative;
-    bottom: 0; /* Position at bottom of page */
-    left: 0; /* Left of page */
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-
+footer {
+  position: relative;
+  bottom: 0; /* Position at bottom of page */
+  left: 0; /* Left of page */
+  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
-
-.narrow-body { /* for post detail pages, so that text is narrower */
-    padding-left: 15rem;
-    padding-right: 15rem;
+.narrow-body {
+  /* for post detail pages, so that text is narrower */
+  padding-left: 15rem;
+  padding-right: 15rem;
 }
 
 /* settings for bullet-point list */
 ul {
-    list-style-type: disc; /* Default bullet style (can be changed) */
-    padding-left: 1.5rem;    /* Add some padding for better spacing */
+  list-style-type: disc; /* Default bullet style (can be changed) */
+  padding-left: 1.5rem; /* Add some padding for better spacing */
 }
 li {
-    margin-bottom: 1vh;  /* Add space between list items */
-    line-height: 1.5;
-    padding-left: 1rem;
-    padding-right: 8rem;
+  margin-bottom: 1vh; /* Add space between list items */
+  line-height: 1.5;
+  padding-left: 1rem;
+  padding-right: 8rem;
 }
 
-
-
-
-
-a {  /* color of links */
-    text-decoration: none;
-    color: rgb(255, 242, 175); 
-    /* color: whitesmoke; */
+a {
+  /* color of links */
+  text-decoration: none;
+  color: rgb(255, 242, 175);
+  /* color: whitesmoke; */
 }
 
-a:hover { /* color of links when your cursor is on them */
-    /* opacity: .85; */
-    text-decoration: underline;
+a:hover {
+  /* color of links when your cursor is on them */
+  /* opacity: .85; */
+  text-decoration: underline;
 }
 
 .white-link a {
-    color: whitesmoke;
+  color: whitesmoke;
 }
-
 
 /* HEADER SETTINGS */
 
-.site-header{
-    background-color: rgb(178, 165, 255);
-    text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    position: relative; /* Needed for absolute positioning of search */
-    width: 100%; /* Ensure full width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    border-bottom: 20px solid rgb(255, 242, 175);
-    border-top: 20px solid rgb(255, 242, 175);
-    /* Added to ensure full width on mobile */
-    left: 0;
-    right: 0;
+.site-header {
+  background-color: rgb(178, 165, 255);
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative; /* Needed for absolute positioning of search */
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  border-bottom: 20px solid rgb(255, 242, 175);
+  border-top: 20px solid rgb(255, 242, 175);
+  /* Added to ensure full width on mobile */
+  left: 0;
+  right: 0;
 }
 
-.site-title{
-    font-size: 8rem;
-    margin-bottom: 1rem;
-    color: rgb(255, 242, 175);
+.site-title {
+  font-size: 8rem;
+  margin-bottom: 1rem;
+  color: rgb(255, 242, 175);
 }
 
-.header-links{
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+.header-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
-.header-link{
-    font-size: 2.5rem;
-    color: rgb(255, 242, 175);
+.header-link {
+  font-size: 2.5rem;
+  color: rgb(255, 242, 175);
 }
 
-.header-link:hover{
-    text-decoration: underline;
+.header-link:hover {
+  text-decoration: underline;
 }
 
 /* search bar in header */
 
 .header-search {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 17rem; /* Control the container width */
-    max-width: 50vw;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 17rem; /* Control the container width */
+  max-width: 50vw;
 }
 
 /* SEARCH BAR SETTINGS */
-form{
-    margin: 0;
-    /* NOT SURE WHY WE HAVE FLEX DISPLAY HERE */ 
-    /* display: flex;
+form {
+  margin: 0;
+  /* NOT SURE WHY WE HAVE FLEX DISPLAY HERE */
+  /* display: flex;
     flex-grow: 1;  */
 }
 
 /* settings for stuff you enter into seach bar */
-input{
-    width: 100%;               /* Fill available space */
-    padding: 0.5rem;           /* Add padding for better appearance */
+input {
+  width: 100%; /* Fill available space */
+  padding: 0.5rem; /* Add padding for better appearance */
 }
 
-/* set-up for main content and sidebar to be next to each other. */ 
-.page-container { 
-    display: flex;
-    gap: 1rem; /* Space between main content and sidebar */
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; /* Align items to the top */
+/* set-up for main content and sidebar to be next to each other. */
+.page-container {
+  display: flex;
+  gap: 1rem; /* Space between main content and sidebar */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .main-content {
-    max-width: 67%;
-    width: 67%; /* Or adjust based on sidebar width */
-    margin: 1rem 1rem;
-    text-align: center;
-  }
-
+  max-width: 67%;
+  width: 67%; /* Or adjust based on sidebar width */
+  margin: 1rem 1rem;
+  text-align: center;
+}
 
 .sidebar {
-    width: 17%; /* Or a percentage, or a specific pixel value */
-    padding: 1vw 0 1vw 3vw;
-    margin-right: 5%;
-    margin-top: 3rem;
-    border: 10px solid rgb(255, 242, 175);
-    background-color: rgb(178, 165, 255);
-    color: rgb(73, 61, 158); 
-    /* flex-shrink: 0; */
-  }
+  width: 17%; /* Or a percentage, or a specific pixel value */
+  padding: 1vw 0 1vw 3vw;
+  margin-right: 5%;
+  margin-top: 3rem;
+  border: 10px solid rgb(255, 242, 175);
+  background-color: rgb(178, 165, 255);
+  color: rgb(73, 61, 158);
+  /* flex-shrink: 0; */
+}
 
-.sidebar a{
-    color: rgb(73, 61, 158);  
+.sidebar a {
+  color: rgb(73, 61, 158);
 }
 
 .coffee-main {
-    width: 60%; /* Or adjust based on sidebar width */
-    margin: 3rem 5rem;
-  }
-
-.coffee-sidebar {
-    width: 30%; /* Or a percentage, or a specific pixel value */
-    margin-right:5%;
-    margin-top: 3rem;
-    padding: 1vw 0 1vw 3vw;
-    border: 10px solid rgb(255, 242, 175);
-    background-color: rgb(178, 165, 255);
-    color: rgb(73, 61, 158); 
-  }
-
-.coffee-sidebar a{
-    color: rgb(73, 61, 158);
+  width: 60%; /* Or adjust based on sidebar width */
+  margin: 3rem 5rem;
 }
 
+.coffee-sidebar {
+  width: 30%; /* Or a percentage, or a specific pixel value */
+  margin-right: 5%;
+  margin-top: 3rem;
+  padding: 1vw 0 1vw 3vw;
+  border: 10px solid rgb(255, 242, 175);
+  background-color: rgb(178, 165, 255);
+  color: rgb(73, 61, 158);
+}
+
+.coffee-sidebar a {
+  color: rgb(73, 61, 158);
+}
 
 /* IMAGES */
 
-
-
 figure {
-    position:relative;
-    text-align:center;
-    display:inline-block; /* Wrap the figure tightly around the content */
-    height: auto;
+  position: relative;
+  text-align: center;
+  display: inline-block; /* Wrap the figure tightly around the content */
+  height: auto;
 }
-
 
 img.framed {
-    /* border: 5px solid whitesmoke;       Add a solid border */
-    padding: 15px;                /* Add space between the image and the border */
-    background-color: rgb(178, 165, 255);    /* Add a background color behind the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    margin-bottom: 1rem;
+  /* border: 5px solid whitesmoke;       Add a solid border */
+  padding: 15px; /* Add space between the image and the border */
+  background-color: rgb(
+    178,
+    165,
+    255
+  ); /* Add a background color behind the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-bottom: 1rem;
 }
 
-
 @media (max-width: 767px) {
-    img.framed {
-        max-width: 350px;
-        height: auto;
-    }
+  img.framed {
+    max-width: 350px;
+    height: auto;
+  }
 
-    .narrow-body { /* for post detail pages, so that text is narrower */
-        padding-left: 8rem;
-        padding-right: 8rem;
-    }
+  .narrow-body {
+    /* for post detail pages, so that text is narrower */
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
 
-    .coffee-main {
-        margin: 2rem 2rem;
-    }
+  .coffee-main {
+    margin: 2rem 2rem;
+  }
 }
 
 /* adding stuff from deep seek to make comment form look better ? */
 
 .comment-author {
-    /* Specific styles for author field */
-    /* border: 2px solid red; */
-    width: 30rem;
-    margin: .5rem;
-    padding: .5rem;
-    font-size: 1rem;
-    font-family: sans-serif;
+  /* Specific styles for author field */
+  /* border: 2px solid red; */
+  width: 30rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: sans-serif;
 }
 
 .comment-body {
-    /* Specific styles for body field */
-    width: 30rem;
-    margin: .5rem;
-    padding: .5rem;
-    font-size: .9rem;
-    font-family: sans-serif;
-    /* min-height: 150px; */
-    /* line-height: 1.6; */
-    /* border: 2px solid red; */
+  /* Specific styles for body field */
+  width: 30rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  /* min-height: 150px; */
+  /* line-height: 1.6; */
+  /* border: 2px solid red; */
 }
 
 .btn.btn-primary {
-    background-color: rgb(255, 242, 175);
-    color: rgb(73, 61, 158);
-    padding: .5rem 1rem;
-    border-radius: 0.375rem;
-    font-family: sans-serif;
-    font-size: 1.25rem;
-    /* font-weight: 500; */
-    cursor: pointer;
-    /* transition: all 0.15s ease-in-out; */
-    margin: 0.5rem;
+  background-color: rgb(255, 242, 175);
+  color: rgb(73, 61, 158);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  /* font-weight: 500; */
+  cursor: pointer;
+  /* transition: all 0.15s ease-in-out; */
+  margin: 0.5rem;
 }
+
+/* THIS IS A TEST I AM ON THE FRONTEND BRANCH. */
