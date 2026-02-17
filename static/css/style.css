@@ -9,10 +9,10 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-
+/* 
 header {
   width: 100%;
-}
+} */
 
 body {
   font-size: 1rem;
@@ -23,7 +23,18 @@ body {
   width: 100vw; /* Ensure body takes full width */
 
   /* no idea WHY this needs to be here but the header falls apart without it x( */
+  /* display: grid;
+  grid-template-columns: 1fr; */
+}
+
+.big-container {
+  width: 100%;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column; */
   display: grid;
+  grid-template-columns: 1fr 20%;
+  gap: 1rem;
 }
 
 /* FONT STYLING */
@@ -113,13 +124,13 @@ a:hover {
   padding: 2rem;
   margin-bottom: 2rem;
   position: relative; /* Needed for absolute positioning of search */
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Include padding in width calculation */
+  /*width: 100%; Ensure full width */
   border-bottom: 20px solid rgb(255, 242, 175);
   border-top: 20px solid rgb(255, 242, 175);
   /* Added to ensure full width on mobile */
-  left: 0;
-  right: 0;
+  /* left: 0;
+  right: 0; */
+  grid-column: 1 / -1;
 }
 
 .site-title {
@@ -167,32 +178,58 @@ input {
   padding: 0.5rem; /* Add padding for better appearance */
 }
 
-/* set-up for main content and sidebar to be next to each other. */
-.page-container {
-  display: flex;
-  gap: 1rem; /* Space between main content and sidebar */
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
-}
-
-.main-content {
+.page-title {
+  margin-bottom: 2rem;
   max-width: 67%;
   width: 67%; /* Or adjust based on sidebar width */
   margin: 1rem 1rem;
   text-align: center;
 }
 
+/* set-up for main content and sidebar to be next to each other. */
+.page-container {
+  max-width: 100%; /* Prevents overflow */
+  width: 100%; /* Ensures it fills parent */
+  /* display: flex; */
+  /* gap: 1rem;  Space between main content and sidebar */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* align-items: flex-start; Align items to the top */
+}
+
+/* .main-content {
+  max-width: 67%;
+  width: 67%; /* Or adjust based on sidebar width */
+/* margin: 1rem 1rem;
+  text-align: center; */
+/*} */
+
+.main-content {
+  /* flex-grow: 3; */
+  margin-left: 2rem;
+  text-align: center;
+}
+
 .sidebar {
-  width: 17%; /* Or a percentage, or a specific pixel value */
+  /* flex-grow: 1; */
+  border: 10px solid rgb(255, 242, 175);
   padding: 1vw 0 1vw 3vw;
+  background-color: rgb(178, 165, 255);
+  color: rgb(73, 61, 158);
+  margin-right: 2rem;
+  align-self: start;
+}
+
+/* .sidebar { */
+/* width: 17%; Or a percentage, or a specific pixel value */
+/* padding: 1vw 0 1vw 3vw;
   margin-right: 5%;
   margin-top: 3rem;
   border: 10px solid rgb(255, 242, 175);
   background-color: rgb(178, 165, 255);
-  color: rgb(73, 61, 158);
-  /* flex-shrink: 0; */
-}
+  color: rgb(73, 61, 158); */
+/* flex-shrink: 0; */
+/* } */
 
 .sidebar a {
   color: rgb(73, 61, 158);
