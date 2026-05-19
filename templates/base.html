@@ -3,9 +3,6 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-  <!-- Below is a link to some style sheet from bootstrap. For now, I'm going without bootstrap. -->
-  <!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/flatly/bootstrap.min.css"> -->
-
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 
   <head>
@@ -17,7 +14,16 @@
   </head>
 
   <body>
-    <div class="big-container">
+    <div class="grid-container">
+      <h1>hello</h1>
+
+      <h1>hola</h1>
+
+      <h1>hi</h1>
+    </div>
+
+    {% comment %}
+    <div class="grid-container">
       <header class="site-header">
         <div class="header-search">
           <form action="{% url 'site_search' %}" method="get">
@@ -44,5 +50,6 @@
       <!-- Content from child templates goes here -->
       {% endblock page_content %}
     </div>
+    {% endcomment %}
   </body>
 </html>

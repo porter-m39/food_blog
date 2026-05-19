@@ -18,23 +18,13 @@ body {
   font-size: 1rem;
   background-color: rgb(73, 61, 158);
   color: whitesmoke;
-  margin: 0; /* Ensure body has no margin */
-  padding: 0; /* Ensure body has no padding */
-  width: 100vw; /* Ensure body takes full width */
-
-  /* no idea WHY this needs to be here but the header falls apart without it x( */
-  /* display: grid;
-  grid-template-columns: 1fr; */
 }
 
-.big-container {
-  width: 100%;
-  margin: 0 auto;
-  /* display: flex;
-  flex-direction: column; */
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 20%;
   gap: 1rem;
+  width: 100vw;
 }
 
 /* FONT STYLING */
