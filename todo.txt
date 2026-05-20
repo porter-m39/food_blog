@@ -38,6 +38,9 @@ Bugs / things to fix
 - DONE -- Add slugs to coffee posts 
 - DONE -- Change processing attribute so that you can select two different processing methods
 - change cupping notes format in coffee (still undecided about if I want this change or not.)
-- Change admin so that an email is linked ?
+- DONE -- Change admin so that an email is linked ?
+    -- (email is already linked, but now a "forgot password" button appears)
 - fix background color... changing html color to yellow shows the recurring issue with the grid layout in style.css
+- redirect URL https://lemonhead.ink/accounts/login/ to something else...
+- Integrate copoilot into vs code
    

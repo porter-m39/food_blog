@@ -291,3 +291,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL')
 EMAIL_HOST_PASSWORD = env('APP_PASSWORD')  # Use an App Password, not your Gmail password
 DEFAULT_FROM_EMAIL = env('EMAIL')
+
+# redirecting /accounts/login to /lemonadmin/. Need to remove this if I want to add regular non-admin accounts
+LOGIN_URL = '/lemonadmin/'
