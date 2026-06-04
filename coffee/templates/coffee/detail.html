@@ -61,10 +61,9 @@
       {%for review in coffee.review_set.all %} {{review.critic }} <br />
       <div class="indent">
         <h5>
-          <em>
-            Score: {{review.score}}
+            <em>Score: </em>{{review.score}}
             <br />
-            {%if review.comments %} Comments: {{review.comments}}<br />
+            {%if review.comments %}<em>Comments: </em>{{review.comments}}<br />
             {% endif %}
           </em>
         </h5>
