@@ -54,11 +54,12 @@ class Critic(models.Model):
     def __str__(self):
         return self.name
     
-class Score(models.Model):
+class Review(models.Model):
     critic = models.ForeignKey("Critic",  on_delete=models.CASCADE) # CASCADE part makes sure the roaster info is deleted when a coffee is deleted
     coffee = models.ForeignKey("Coffee", on_delete=models.CASCADE)
     score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     created_on = models.DateTimeField(auto_now_add=True)
+    comments = models.TextField(blank=True)
 
     # the following function is courtesy of Deep Seek. No migration needed when defining this.
     def __str__(self):

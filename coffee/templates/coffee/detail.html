@@ -1,78 +1,87 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block page_title %} {% endblock page_title %}
+{%block page_content %}
+<div class="narrow-body">
+  <h1>{{ coffee.name }}</h1>
+  <br />
 
+  <big>
+    <br />
 
-{% block page_title %}
-    
+    <p>
+      <em>
+        Roaster:
+        <a href="{% url 'coffee:coffee_roaster' coffee.roaster.name %}">
+          {{ coffee.roaster }}
+        </a>
+      </em>
+    </p>
 
-{% endblock page_title %}
-
-{% block page_content %}
-    <div class="narrow-body">
-
-        <h1> {{ coffee.name }} </h1> <br>
-
-        <big> 
-
-            <br>
-        
-            <p> <em> Roaster: <a href = "{% url 'coffee:coffee_roaster' coffee.roaster.name %}"> {{ coffee.roaster }} </a> </em> </p>
-
-            {% if coffee.origin %}
-                <p> <em> Origin: </em> 
-                    {% for country in coffee.origin.all %}
-                        <a href = "{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a>{% if not forloop.last %}, {% endif %}
-                    {% endfor %} 
-                </p>
+    {% if coffee.origin.exists %}
+    <p>
+      <em> Origin: </em>
+      {% for country in coffee.origin.all %}
+      <a href="{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a
+      >{% if not forloop.last %}, {% endif %} {% endfor %}
+    </p>
+    {% endif %} {% if coffee.roast_level %}
+    <p>
+      <em> Roast level: </em>
+      <a href="{% url 'coffee:roast_level' coffee.roast_level %}">
+        {{ coffee.roast_level.name }}
+      </a>
+    </p>
+    {% endif %} {% if coffee.acidity %}
+    <p>
+      <em> Acidity: </em>
+      <a href="{% url 'coffee:coffee_acidity' coffee.acidity %}">
+        {{ coffee.acidity.name }}
+      </a>
+    </p>
+    {% endif %} {% if coffee.processing.exists %}
+    <p>
+      <em> Processing: </em>
+      {% for processing in coffee.processing.all %}
+      <a href="{% url 'coffee:processing' processing %}"
+        >{{ processing.name }}</a
+      >{% if not forloop.last %}, {% endif %} {% endfor %}
+    </p>
+    {% endif %} {%if coffeee.comments %}
+    <p>
+      <em> Cupping notes: </em>
+      {% for cupping_note in coffee.cupping_notes.all %}
+      <a href="{% url 'coffee:cupping_note' cupping_note %}"
+        >{{ cupping_note.name }}</a
+      >{% if not forloop.last %}, {% endif %} {% endfor %}
+    </p>
+    {%endif%} {%if coffee.comments %}
+    <p><em> Other notes: </em> {{ coffee.comments }}</p>
+    {% endif %} {%if coffee.review_set.exists %}
+    <h2>Reviews <br /></h2>
+    <div class="indent">
+      {%for review in coffee.review_set.all %} {{review.critic }} <br />
+      <div class="indent">
+        <h5>
+          <em>
+            Score: {{review.score}}
+            <br />
+            {%if review.comments %} Comments: {{review.comments}}<br />
             {% endif %}
-
-            {% if coffee.roast_level %}
-                <p> <em> Roast level: </em> <a href = "{% url 'coffee:roast_level' coffee.roast_level %}"> {{ coffee.roast_level.name }} </a>
-                </p>
-            {% endif %}
-
-            {% if coffee.acidity %}
-                <p> <em> Acidity: </em> <a href = "{% url 'coffee:coffee_acidity' coffee.acidity %}"> {{ coffee.acidity.name }} </a>
-                </p>
-            {% endif %}
-
-            {% if coffee.processing.exists %}
-                <p> <em> Processing: </em>
-                {% for processing in coffee.processing.all %}
-                    <a href = "{% url 'coffee:processing' processing %}">{{ processing.name }}</a>{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-                </p>
-            {% endif %}
-
-
-            <p>
-                <em> Cupping notes: </em>
-                {% for cupping_note in coffee.cupping_notes.all %}
-                    <a href = "{% url 'coffee:cupping_note' cupping_note %}">{{ cupping_note.name }}</a>{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-            </p>
-
-            {% if coffee.score_set.exists %}
-                <big> Scores <br> </big> {% for score in coffee.score_set.all %}
-                    {{ score.critic }}: {{ score.score }} <br>
-                {% endfor %} 
-            {% endif %}
-
-            {% if coffee.comments %}
-                <p>
-                    <em> Comments: </em> {{ coffee.comments }}
-                </p>
-            {% endif %}
-        
-        </big>
-
-        <br> <br>
-
-        <div class="gap_below">
-
-            Post created on {{ coffee.created_on.date }} <br>
-            Last modified on {{coffee.last_modified.date}}
-        </div>
-
+          </em>
+        </h5>
+      </div>
+    </br>
+      {%endfor %}
     </div>
-    
+    {%endif %}
+  </big>
+
+  <br />
+  <br />
+
+  <div class="gap_below">
+    Post created on {{ coffee.created_on.date }} <br />
+    Last modified on {{coffee.last_modified.date}}
+  </div>
+</div>
+
 {% endblock page_content %}

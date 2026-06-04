@@ -51,6 +51,11 @@ h3 {
   font-size: 1.3rem;
 }
 
+h5 {
+  font-weight: 100;
+  font-size: 1rem;
+}
+
 p {
   text-align: left;
   padding: auto; /* maybe this will help make nicer vertical spacing? */
@@ -74,6 +79,10 @@ footer {
   /* for post detail pages, so that text is narrower */
   padding-left: 15rem;
   padding-right: 15rem;
+}
+
+.indent {
+  padding-left: 2rem;
 }
 
 /* settings for bullet-point list */

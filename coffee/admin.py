@@ -1,5 +1,5 @@
 from django.contrib import admin
-from coffee.models import Roaster, Country, CuppingNote, Coffee, Score, Critic, RoastLevel, Acidity, Processing
+from coffee.models import Roaster, Country, CuppingNote, Coffee, Review, Critic, RoastLevel, Acidity, Processing
 from import_export.admin import ImportExportActionModelAdmin
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export import fields, resources
@@ -51,7 +51,7 @@ class CriticAdmin(admin.ModelAdmin):
 class ProcessingAdmn(admin.ModelAdmin):
     pass
 
-class ScoreResource(resources.ModelResource):
+class ReviewResource(resources.ModelResource):
     critic = fields.Field(
         attribute='critic',
         widget = CreateForeignKeyWidget(Critic, field = 'name')
@@ -63,12 +63,12 @@ class ScoreResource(resources.ModelResource):
     )
 
     class Meta:
-        model = Score
+        model = Review
         import_id_fields = () # Empty tuple means don't use IDs
-        fields = ('critic','coffee','score','created_on')
+        fields = ('critic','coffee','score','created_on','comments')
 
-class ScoreAdmin(ImportExportActionModelAdmin):
-    resource_class = ScoreResource
+class ReviewAdmin(ImportExportActionModelAdmin):
+    resource_class = ReviewResource
 
 class CoffeeResource(resources.ModelResource):
     roaster = fields.Field(
@@ -120,5 +120,5 @@ admin.site.register(Country,CountryAdmin)
 admin.site.register(CuppingNote,CuppingNoteAdmin)
 admin.site.register(Coffee,CoffeeAdmin)
 admin.site.register(Critic,CriticAdmin)
-admin.site.register(Score,ScoreAdmin)
+admin.site.register(Review,ReviewAdmin)
 admin.site.register(Processing,ProcessingAdmn) 
