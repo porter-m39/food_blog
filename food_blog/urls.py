@@ -25,9 +25,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('lemonadmin/', admin.site.urls),
-    path('',include("posts.urls")),
     path('coffee/',include("coffee.urls")),
     path('site_search/', views.site_search,name="site_search"),
+    path('',include("posts.urls")), # this is listed last as a "catch all". If it's listed earlier, some of the other endings above might be interprettd as post slugs
 
     #ckeditor 
     path("ckeditor5/", include('django_ckeditor_5.urls')),

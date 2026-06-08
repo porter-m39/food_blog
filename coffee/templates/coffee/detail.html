@@ -16,28 +16,28 @@
       </em>
     </p>
 
-    {% if coffee.origin.exists %}
+    {%if coffee.origin.exists %}
     <p>
       <em> Origin: </em>
       {% for country in coffee.origin.all %}
       <a href="{% url 'coffee:coffee_origin' country %}">{{ country.name }}</a
-      >{% if not forloop.last %}, {% endif %} {% endfor %}
+      >{%if not forloop.last %}, {%endif %} {%endfor %}
     </p>
-    {% endif %} {% if coffee.roast_level %}
+    {% endif %} {%if coffee.roast_level %}
     <p>
       <em> Roast level: </em>
       <a href="{% url 'coffee:roast_level' coffee.roast_level %}">
         {{ coffee.roast_level.name }}
       </a>
     </p>
-    {% endif %} {% if coffee.acidity %}
+    {%endif %} {%if coffee.acidity %}
     <p>
       <em> Acidity: </em>
       <a href="{% url 'coffee:coffee_acidity' coffee.acidity %}">
         {{ coffee.acidity.name }}
       </a>
     </p>
-    {% endif %} {% if coffee.processing.exists %}
+    {% endif %} {%if coffee.processing.exists %}
     <p>
       <em> Processing: </em>
       {% for processing in coffee.processing.all %}
@@ -45,7 +45,7 @@
         >{{ processing.name }}</a
       >{% if not forloop.last %}, {% endif %} {% endfor %}
     </p>
-    {% endif %} {%if coffeee.comments %}
+    {% endif %} {%if coffee.cupping_notes.exists %}
     <p>
       <em> Cupping notes: </em>
       {% for cupping_note in coffee.cupping_notes.all %}
@@ -53,7 +53,7 @@
         >{{ cupping_note.name }}</a
       >{% if not forloop.last %}, {% endif %} {% endfor %}
     </p>
-    {%endif%} {%if coffee.comments %}
+    {% endif %} {%if coffee.comments %}
     <p><em> Other notes: </em> {{ coffee.comments }}</p>
     {% endif %} {%if coffee.review_set.exists %}
     <h2>Reviews <br /></h2>

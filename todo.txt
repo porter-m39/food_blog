@@ -45,7 +45,7 @@ Bugs / things to fix
 - fix background color... changing html color to yellow shows the recurring issue with the grid layout in style.css
 - DONE -- redirect URL https://lemonhead.ink/accounts/login/ to something else...
 - Integrate copoilot into vs code
-- Allow a score-giver to add comments when they score ?
+- DONE -- Allow a score-giver to add comments when they score ?
     - might make sense to re-brand score as "review" in this case
-
+- fix the url "... /lemonadmin/" so that a backslash is not needed at the end
    
