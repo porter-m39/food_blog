@@ -27,16 +27,19 @@ urlpatterns = [
     path('lemonadmin/', admin.site.urls),
     path('coffee/',include("coffee.urls")),
     path('site_search/', views.site_search,name="site_search"),
-    path('',include("posts.urls")), # this is listed last as a "catch all". If it's listed earlier, some of the other endings above might be interprettd as post slugs
-
+    
     #ckeditor 
     path("ckeditor5/", include('django_ckeditor_5.urls')),
 
     #password reset
-    path('admin/password_reset/', auth_views.PasswordResetView.as_view(), name='admin_password_reset'),
-    path('admin/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('lemonadmin/password_reset/', auth_views.PasswordResetView.as_view(), name='admin_password_reset'),
+    path('lemonadmin/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    
+    path('',include("posts.urls")), # this is listed last as a "catch all". If it's listed earlier, some of the other endings above might be interprettd as post slugs
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

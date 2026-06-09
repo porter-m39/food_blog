@@ -47,5 +47,5 @@ Bugs / things to fix
 - Integrate copoilot into vs code
 - DONE -- Allow a score-giver to add comments when they score ?
     - might make sense to re-brand score as "review" in this case
-- fix the url "... /lemonadmin/" so that a backslash is not needed at the end
+- DONE -- fix the url "... /lemonadmin/" so that a backslash is not needed at the end
    
