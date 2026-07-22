@@ -13,6 +13,7 @@ urlpatterns = [
     path("roast_level/<roast_level>/", views.roast_level, name = "roast_level"),
     path("acidity/<acidity>/", views.acidity, name="coffee_acidity"),
     path("processing/<processing>/", views.processing, name="processing"),
-    
+    path("varietal/<varietal>/", views.varietal, name="varietal"),
+
     path('<slug:slug>/', views.coffee_detail, name="coffee_detail"), # slug is last, as a catch-all
 ]

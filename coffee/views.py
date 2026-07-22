@@ -81,3 +81,13 @@ def processing(request,processing):
         "coffees": coffees,
     }
     return render(request, "coffee/processing.html", context)
+
+def varietal(request,varietal):
+    coffees = Coffee.objects.filter(
+        varietal__name__contains = varietal
+    ).order_by("-created_on")
+    context = {
+        "varietal":varietal,
+        "coffees": coffees,
+    }
+    return render(request, "coffee/varietal.html", context)

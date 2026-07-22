@@ -45,6 +45,13 @@
         >{{ processing.name }}</a
       >{% if not forloop.last %}, {% endif %} {% endfor %}
     </p>
+    {% endif %} {%if coffee.varietal.exists %}
+    <p>
+      <em> Varietal: </em>
+      {% for varietal in coffee.varietal.all %}
+      <a href="{% url 'coffee:varietal' varietal %}">{{ varietal.name }}</a
+      >{% if not forloop.last %}, {% endif %} {% endfor %}
+    </p>
     {% endif %} {%if coffee.cupping_notes.exists %}
     <p>
       <em> Cupping notes: </em>
