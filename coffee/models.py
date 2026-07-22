@@ -39,6 +39,12 @@ class Processing(models.Model):
     def __str__(self):
         return self.name
 
+class Varietal(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
 class CuppingNote(models.Model):
     name = models.CharField(max_length=30)
 
@@ -80,6 +86,7 @@ class Coffee(models.Model):
     roast_level = models.ForeignKey("RoastLevel",on_delete=models.CASCADE,blank=True,null=True)
     acidity = models.ForeignKey("Acidity",on_delete=models.CASCADE,blank=True,null=True)
     processing = models.ManyToManyField("Processing", related_name="coffees",blank=True)
+    varietal = models.ManyToManyField("Varietal", related_name="coffees",blank=True)
     cupping_notes = models.ManyToManyField("CuppingNote", related_name = "coffees",blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from coffee.models import Roaster, Country, CuppingNote, Coffee, Review, Critic, RoastLevel, Acidity, Processing
+from coffee.models import Roaster, Country, CuppingNote, Coffee, Review, Critic, RoastLevel, Acidity, Processing, Varietal
 from import_export.admin import ImportExportActionModelAdmin
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget
 from import_export import fields, resources
@@ -49,6 +49,9 @@ class CriticAdmin(admin.ModelAdmin):
     pass
 
 class ProcessingAdmn(admin.ModelAdmin):
+    pass
+
+class VarietalAdmin(admin.ModelAdmin):
     pass
 
 class ReviewResource(resources.ModelResource):
@@ -121,4 +124,5 @@ admin.site.register(CuppingNote,CuppingNoteAdmin)
 admin.site.register(Coffee,CoffeeAdmin)
 admin.site.register(Critic,CriticAdmin)
 admin.site.register(Review,ReviewAdmin)
-admin.site.register(Processing,ProcessingAdmn) 
+admin.site.register(Processing,ProcessingAdmn)
+admin.site.register(Varietal,VarietalAdmin)

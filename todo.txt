@@ -48,4 +48,4 @@ Bugs / things to fix
 - DONE -- Allow a score-giver to add comments when they score ?
     - might make sense to re-brand score as "review" in this case
 - DONE -- fix the url "... /lemonadmin/" so that a backslash is not needed at the end
-   
+- improve password reset (eg, fix the error that happens when you enter two different passwords when you enter and re-enter the new password)
