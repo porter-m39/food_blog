@@ -32,40 +32,21 @@
 
             <h3> Roaster </h3>
 
-            <div style="margin-left:2vw;">
+            <div class="filter-list" style="margin-left:2vw;">
                 {% for roaster in roasters %}
-                    <a href = "{% url 'coffee:coffee_roaster' roaster.name %}">{{ roaster.name }}</a> <br> <br>
+                    <a href = "{% url 'coffee:coffee_roaster' roaster.name %}">{{ roaster.name }}</a><br class="filter-break"><br class="filter-break">
                 {% endfor %}
 
             </div>
 
             <h3> Country of origin </h3>
 
-            <div style="margin-left:2vw;">
+            <div class="filter-list" style="margin-left:2vw;">
                 {% for country in countries %}
-                    <a href = "{% url 'coffee:coffee_origin' country.name %}">{{ country.name }}</a> <br> <br>
+                    <a href = "{% url 'coffee:coffee_origin' country.name %}">{{ country.name }}</a><br class="filter-break"><br class="filter-break">
                 {% endfor %}
 
             </div>
-
-            <h3> Roast level </h3>
-
-            <div style="display: flex; justify-content: space-between;">
-                <a href = "{% url 'coffee:roast_level' "light" %}">{{ "light" }}</a> 
-                <a href = "{% url 'coffee:roast_level' "medium" %}">{{ "medium" }}</a> 
-                <a href = "{% url 'coffee:roast_level' "dark" %}">{{ "dark" }}</a>  <br><br>
-            </div>
-
-            <h3> Acidity </h3>
-
-            <div style="display: flex; justify-content: space-between">
-                <a href = "{% url 'coffee:coffee_acidity' "low" %}">{{ "low" }}</a> 
-                <a href = "{% url 'coffee:coffee_acidity' "medium" %}">{{ "medium" }}</a> 
-                <a href = "{% url 'coffee:coffee_acidity' "high" %}">{{ "high" }}</a>  <br><br>
-            </div>
-
-
-            
 
         </div>
     </div>

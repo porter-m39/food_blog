@@ -1,13 +1,14 @@
 <!-- posts/templates/posts/index.html -->
 
 {% extends "base.html" %} {% block page_title %}
-<h1 class="main-content" style="margin-bottom: 2rem">all recipes</h1>
 {% endblock page_title %}
 
 <!-- If you edit the below code, you will need to make the same edits in search.html in the food_blog directory -->
 {% block page_content %}
 
 <div class="page-container">
+  <h1 class="page-heading" style="margin-bottom: 2rem">all recipes</h1>
+
   <div class="main-content">
     {% for post in posts %}
     <div class="white-link">
@@ -25,7 +26,7 @@
         class="framed"
         src="{{ post.banner.url }}"
         alt="{{ post.title }}"
-        style="max-width: 500px; max-height: 500px; text-align: center"
+        style="max-width: 100%; max-height: 500px; text-align: center"
       />
     </figure>
 
@@ -38,9 +39,11 @@
 
   <div class="sidebar">
     <h2>Tags</h2>
-    {% for tag in tags %}
-    <a href="{% url 'posts:post_tag' tag.name %}"> <h3>{{ tag.name }}</h3> </a>
-    {% endfor %}
+    <div class="filter-list">
+      {% for tag in tags %}
+      <a href="{% url 'posts:post_tag' tag.name %}"> <h3>{{ tag.name }}</h3> </a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
