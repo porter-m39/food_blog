@@ -42,6 +42,9 @@ class Processing(models.Model):
 class Varietal(models.Model):
     name = models.CharField(max_length=30)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
